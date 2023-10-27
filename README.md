@@ -1,5 +1,5 @@
-[![en](https://img.shields.io/badge/english-lang-red.svg)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.en.md)
-[![fa](https://img.shields.io/badge/persian-lang-green)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.md)
+[![en](https://img.shields.io/badge/English-lang-red.svg)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.en.md)
+[![fa](https://img.shields.io/badge/Persian-lang-green)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.md)
 
 # یوساب
 
