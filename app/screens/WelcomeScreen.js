@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+// import LinearGradient from "react-native-linear-gradient";
 
 import colors from "../components/config/colors";
 import Button from "../components/Button";
@@ -28,7 +29,7 @@ function WelcomeScreen(props) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    width: "100%",
+    height: "100%",
     backgroundColor: colors.primary,
     alignItems: "center",
   },

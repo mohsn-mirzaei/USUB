@@ -1,9 +1,10 @@
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
+import Constants from "expo-constants";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import { View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
@@ -23,8 +24,17 @@ export default function App() {
   }
 
   return (
-    <View onLayout={onLayoutRootView}>
-      <WelcomeScreen />
-    </View>
+    <SafeAreaView style={style.safeView}>
+      <View onLayout={onLayoutRootView}>
+        <WelcomeScreen />
+      </View>
+    </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  safeView: {
+    paddingTop: Constants.statusBarHeight,
+    flex: 1,
+  },
+});
