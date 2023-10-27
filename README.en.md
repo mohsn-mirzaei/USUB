@@ -1,5 +1,5 @@
-[![en](https://img.shields.io/badge/english-lang-red.svg)](https://github.com/)
-[![en](https://img.shields.io/badge/persian-lang-green)](https://github.com/)
+[![en](https://img.shields.io/badge/english-lang-red.svg)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.en.md)
+[![fa](https://img.shields.io/badge/persian-lang-green)](https://github.com/mohsn-mirzaei/USUB/blob/master/README.md)
 
 # USUB
 
