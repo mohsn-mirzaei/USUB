@@ -1,41 +1,61 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-// import LinearGradient from "react-native-linear-gradient";
-
+import { LinearGradient } from "expo-linear-gradient";
 import colors from "../components/config/colors";
 import Button from "../components/Button";
 
 function WelcomeScreen(props) {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/USUB-Logo.png")}
-      ></Image>
-      <View style={styles.text}>
-        <Text style={styles.textRegular}>خوش آمدید</Text>
-        <Text style={styles.textBold}>یوساب</Text>
-        <Text style={styles.textRegular}>یک نرم‌افزار حسابداری شخصی</Text>
-        <Text style={styles.textRegular}>
-          برای هرچه آسان کردن مدیریت مالی است
-        </Text>
-      </View>
-      <Button title="ورود" onPress={() => console.log("Login Clicked")} />
-      <Button title="ثبت نام" onPress={() => console.log("Register Clicked")} />
+      <LinearGradient
+        colors={[colors.primary, "transparent"]}
+        style={styles.background}
+        locations={[0.7, 1]}
+      >
+        <Image style={styles.logo} source={require("../assets/icon.png")} />
+        <View style={styles.text}>
+          <Text style={styles.textRegular}>خوش آمدید!</Text>
+          <Text style={styles.textBold}>یوساب</Text>
+          <Text style={styles.textRegular}>یک نرم‌افزار حسابداری شخصی</Text>
+          <Text style={styles.textRegular}>
+            برای هرچه آسان کردن مدیریت مالی است
+          </Text>
+        </View>
+        <Button
+          title="ورود"
+          color="primary"
+          textColor="secondary"
+          onPress={() => console.log("Login Clicked")}
+        />
+        <Button
+          title="ثبت نام"
+          onPress={() => console.log("Register Clicked")}
+        />
+      </LinearGradient>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     height: "100%",
-    backgroundColor: colors.primary,
     alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.black,
+  },
+  background: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 500,
+    alignItems: "center",
+    padding: 20,
   },
   logo: {
     width: 350,
     height: 350,
+    top: -20,
   },
   text: {
     top: -40,
