@@ -1,10 +1,9 @@
-import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import colors from "../components/config/colors";
 import Button from "../components/Button";
 
-function WelcomeScreen(props) {
+const WelcomeScreen = () => {
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -34,7 +33,7 @@ function WelcomeScreen(props) {
       </LinearGradient>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

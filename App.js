@@ -4,7 +4,8 @@ import { SafeAreaView, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import Constants from "expo-constants";
 
-import WelcomeScreen from "./app/screens/WelcomeScreen";
+// import WelcomeScreen from "./app/screens/WelcomeScreen";
+import LoginScreen from "./app/screens/LoginScreen";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <SafeAreaView style={style.safeView}>
       <View onLayout={onLayoutRootView}>
-        <WelcomeScreen />
+        <LoginScreen />
       </View>
     </SafeAreaView>
   );
