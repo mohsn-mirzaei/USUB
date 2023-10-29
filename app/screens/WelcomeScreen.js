@@ -1,74 +1,60 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import colors from "../components/config/colors";
+import globalStyles from "../components/config/globalStyles";
 import Button from "../components/Button";
 
 const WelcomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <View className="h-full items-center justify-center bg-black">
       <LinearGradient
-        colors={[colors.primary, "transparent"]}
-        style={styles.background}
+        className="absolute left-0 right-0 top-0 h-4/6 items-center p-4"
+        colors={[globalStyles.primary, "transparent"]}
         locations={[0.7, 1]}
       >
-        <Image style={styles.logo} source={require("../assets/icon.png")} />
-        <View style={styles.text}>
-          <Text style={styles.textRegular}>خوش آمدید!</Text>
-          <Text style={styles.textBold}>یوساب</Text>
-          <Text style={styles.textRegular}>یک نرم‌افزار حسابداری شخصی</Text>
-          <Text style={styles.textRegular}>
+        <Image
+          className="w-[350px] h-[350px] top-[-16]"
+          source={require("../assets/icon.png")}
+        />
+        <View className="top-[-40px] flex gap-4">
+          <Text
+            className="text-lg text-secondary"
+            style={{ fontFamily: globalStyles.regular }}
+          >
+            خوش آمدید!
+          </Text>
+          <Text
+            className="text-4xl leading-[48px] text-secondary"
+            style={{ fontFamily: globalStyles.bold }}
+          >
+            یوساب
+          </Text>
+          <Text
+            className="text-lg text-secondary"
+            style={{ fontFamily: globalStyles.regular }}
+          >
+            یک نرم‌افزار حسابداری شخصی
+          </Text>
+          <Text
+            className="text-lg text-secondary"
+            style={{ fontFamily: globalStyles.regular }}
+          >
             برای هرچه آسان کردن مدیریت مالی است
           </Text>
         </View>
         <Button
           title="ورود"
-          color="primary"
+          bg="primary"
           textColor="secondary"
           onPress={() => console.log("Login Clicked")}
         />
         <Button
           title="ثبت نام"
+          bg="secondary"
           onPress={() => console.log("Register Clicked")}
         />
       </LinearGradient>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.black,
-  },
-  background: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    height: 500,
-    alignItems: "center",
-    padding: 20,
-  },
-  logo: {
-    width: 350,
-    height: 350,
-    top: -20,
-  },
-  text: {
-    top: -40,
-  },
-  textRegular: {
-    fontFamily: "iran-sans-regular",
-    fontSize: 18,
-    color: colors.secondary,
-  },
-  textBold: {
-    fontFamily: "iran-sans-bold",
-    fontSize: 28,
-    color: colors.secondary,
-  },
-});
 
 export default WelcomeScreen;

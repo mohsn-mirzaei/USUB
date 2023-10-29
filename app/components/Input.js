@@ -1,6 +1,6 @@
 import { Controller } from "react-hook-form";
-import { StyleSheet, Text, TextInput } from "react-native";
-import colors from "./config/colors";
+import { Text, TextInput } from "react-native";
+import globalStyles from "./config/globalStyles";
 
 const Input = ({ control, name, rules = {}, placeholder, secureTextEntry }) => {
   return (
@@ -14,45 +14,30 @@ const Input = ({ control, name, rules = {}, placeholder, secureTextEntry }) => {
       }) => (
         <>
           <TextInput
-            style={[
-              styles.input,
-              {
-                borderColor: error && colors.danger,
-                borderWidth: error && 1,
-                marginBottom: !error && 20,
-              },
-            ]}
-            placeholderTextColor={colors.secondary}
+            className={`text-sm bg-blackLight text-secondary p-4 rounded-2xl text-right
+             ${error && "border-2 border-danger"}
+             ${!error && "mb-5"}
+             `}
+            style={{ fontFamily: globalStyles.regular }}
+            placeholderTextColor={globalStyles.opacity}
             placeholder={placeholder}
             value={value}
             onChangeText={onChange}
             onBlur={onBlur}
             secureTextEntry={secureTextEntry}
           />
-          {error && <Text style={styles.textErr}>{error?.message}</Text>}
+          {error && (
+            <Text
+              className="text-right mb-2 mt-1 text-danger"
+              style={{ fontFamily: globalStyles.regular }}
+            >
+              {error?.message}
+            </Text>
+          )}
         </>
       )}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    fontFamily: "iran-sans-regular",
-    fontSize: 12,
-    backgroundColor: colors.blackLight,
-    color: colors.secondary,
-    padding: 15,
-    borderRadius: 15,
-    textAlign: "right",
-  },
-  textErr: {
-    fontFamily: "iran-sans-regular",
-    textAlign: "right",
-    marginTop: 5,
-    marginBottom: 20,
-    color: colors.danger,
-  },
-});
 
 export default Input;

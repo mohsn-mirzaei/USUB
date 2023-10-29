@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import { Controller, useForm } from "react-hook-form";
-import colors from "../components/config/colors";
+import { Text, View } from "react-native";
+import { useForm } from "react-hook-form";
+import globalStyles from "../components/config/globalStyles";
 import Button from "../components/Button";
 import Input from "../components/Input";
 
@@ -16,8 +16,13 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>اطلاعات ورود</Text>
+    <View className="h-full justify-center px-5 bg-black">
+      <Text
+        className="text-secondary text-center text-4xl mb-5 leading-[48px]"
+        style={{ fontFamily: globalStyles.bold }}
+      >
+        اطلاعات ورود
+      </Text>
 
       <Input
         control={control}
@@ -32,37 +37,20 @@ const LoginScreen = () => {
         rules={{ required: "رمز عبور الزامی است" }}
       />
 
-      <Text style={styles.text}>رمز عبور خود را فراموش کرده اید؟</Text>
+      <Text
+        className="text-secondary text-sm top-[-10px]"
+        style={{ fontFamily: globalStyles.regular }}
+      >
+        رمز عبور خود را فراموش کرده اید؟
+      </Text>
       <Button
         title="ورود"
         onPress={handleSubmit(onSubmit)}
-        color="primary"
+        bg="primary"
         textColor="secondary"
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    backgroundColor: colors.black,
-  },
-  title: {
-    color: colors.secondary,
-    textAlign: "center",
-    fontFamily: "iran-sans-bold",
-    fontSize: 36,
-    marginBottom: 20,
-  },
-  text: {
-    fontFamily: "iran-sans-regular",
-    color: colors.secondary,
-    fontSize: 10,
-    top: -10,
-  },
-});
 
 export default LoginScreen;

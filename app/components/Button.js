@@ -1,39 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import colors from "../components/config/colors";
+import { Text, TouchableOpacity } from "react-native";
 
-function Button({
-  title,
-  onPress,
-  color = "secondary",
-  textColor = "blackLight",
-  style,
-}) {
+function Button({ title, onPress, bg, textColor = "blackLight" }) {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: colors[color] }, style]}
+      className={`w-full items-center p-4 my-2 rounded-2xl bg-${bg}`}
       onPress={onPress}
     >
-      <Text style={[styles.text, { color: colors[textColor] }]}>{title}</Text>
+      <Text
+        style={{ fontFamily: "snsBld" }}
+        className={`text-${textColor} text-lg`}
+      >
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: colors.secondary,
-    borderRadius: 15,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 15,
-    width: "100%",
-    marginVertical: 10,
-  },
-  text: {
-    fontFamily: "iran-sans-bold",
-    fontSize: 18,
-    color: colors.blackLight,
-  },
-});
 
 export default Button;

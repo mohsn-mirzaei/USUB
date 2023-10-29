@@ -10,8 +10,8 @@ import LoginScreen from "./app/screens/LoginScreen";
 SplashScreen.preventAutoHideAsync();
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
-    "iran-sans-regular": require("./app/assets/fonts/IranSansRegular.ttf"),
-    "iran-sans-bold": require("./app/assets/fonts/IranSansBold.ttf"),
+    snsReg: require("./app/assets/fonts/IranSansRegular.ttf"),
+    snsBld: require("./app/assets/fonts/IranSansBold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -28,6 +28,7 @@ export default function App() {
     <SafeAreaView style={style.safeView}>
       <View onLayout={onLayoutRootView}>
         <LoginScreen />
+        {/* <WelcomeScreen /> */}
       </View>
     </SafeAreaView>
   );
