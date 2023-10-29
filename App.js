@@ -1,11 +1,10 @@
+import { NavigationContainer } from "@react-navigation/native";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
-import { SafeAreaView, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import Constants from "expo-constants";
-
-// import WelcomeScreen from "./app/screens/WelcomeScreen";
-import LoginScreen from "./app/screens/LoginScreen";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
@@ -21,15 +20,17 @@ export default function App() {
   }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded && !fontError) {
+    console.log(fontsLoaded);
+    console.log(fontError);
     return null;
   }
+  onLayoutRootView();
 
   return (
     <SafeAreaView style={style.safeView}>
-      <View onLayout={onLayoutRootView}>
-        <LoginScreen />
-        {/* <WelcomeScreen /> */}
-      </View>
+      <NavigationContainer>
+        <AuthNavigator />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }

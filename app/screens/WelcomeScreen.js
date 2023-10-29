@@ -3,7 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import globalStyles from "../components/config/globalStyles";
 import Button from "../components/Button";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View className="h-full items-center justify-center bg-black">
       <LinearGradient
@@ -45,7 +45,7 @@ const WelcomeScreen = () => {
           title="ورود"
           bg="primary"
           textColor="secondary"
-          onPress={() => console.log("Login Clicked")}
+          onPress={() => navigation.navigate("Login")}
         />
         <Button
           title="ثبت نام"
