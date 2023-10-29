@@ -50,7 +50,7 @@ const WelcomeScreen = ({ navigation }) => {
         <Button
           title="ثبت نام"
           bg="secondary"
-          onPress={() => console.log("Register Clicked")}
+          onPress={() => navigation.navigate("Register")}
         />
       </LinearGradient>
     </View>
