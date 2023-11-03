@@ -3,11 +3,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../config/globalStyles";
 
-const SmallBox = ({ backgroundColor, width, title, name }) => {
+const SmallBox = ({ title }) => {
+  backgroundColor =
+    title === "دریافت‌ها" ? globalStyles.green : globalStyles.danger;
+
   return (
-    <View style={[styles.container, { backgroundColor }, { width }]}>
+    <View style={[styles.container, { backgroundColor }]}>
       <MaterialCommunityIcons
-        name={name}
+        name={title === "دریافت‌ها" ? "call-made" : "call-received"}
         size={48}
         color={globalStyles.backgroundDark}
       />
@@ -20,14 +23,11 @@ const SmallBox = ({ backgroundColor, width, title, name }) => {
 
 const styles = StyleSheet.create({
   container: {
+    width: 170,
     height: 140,
     borderRadius: 20,
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
-    marginRight: 5,
-    marginLeft: 5,
-    marginTop: 10,
   },
   amount: {
     fontFamily: "snsReg",

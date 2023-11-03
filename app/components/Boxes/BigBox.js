@@ -3,21 +3,19 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../config/globalStyles";
 
-const BixBox = ({ title, name }) => {
+const BixBox = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.icon}>
-        <MaterialCommunityIcons
-          name={name}
-          size={58}
-          color={globalStyles.backgroundDark}
-        />
-      </View>
-      <View style={styles.details}>
-        <Text style={styles.label}>{title}</Text>
+      <MaterialCommunityIcons
+        name="chart-line"
+        size={58}
+        color={globalStyles.backgroundDark}
+      />
+      <View style={styles.detailsContainer}>
+        <Text style={styles.label}>مانده</Text>
         <View style={styles.amountDetail}>
-          <Text style={styles.amount}>۳۰,۰۰۰,۰۰۰,۰۰۰</Text>
           <Text style={styles.amount}>تومان</Text>
+          <Text style={styles.amount}>۳۰,۰۰۰,۰۰۰,۰۰۰</Text>
         </View>
       </View>
     </View>
@@ -27,19 +25,18 @@ const BixBox = ({ title, name }) => {
 const styles = StyleSheet.create({
   container: {
     width: 350,
-    backgroundColor: globalStyles.yellow,
     height: 128,
+    backgroundColor: globalStyles.yellow,
     borderRadius: 20,
     flexDirection: "row-reverse",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 10,
   },
-  details: {
+  detailsContainer: {
     paddingHorizontal: 20,
   },
   amountDetail: {
-    flexDirection: "row-reverse",
+    flexDirection: "row",
   },
   amount: {
     fontFamily: "snsReg",

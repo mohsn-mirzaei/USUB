@@ -1,31 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import getIconAndColor from "./getIconAndColor";
 import globalStyles from "../config/globalStyles";
 
-const getIconAndColor = (type) => {
-  if (type === "income") {
-    return {
-      icon: "call-made",
-      color: globalStyles.green,
-    };
-  } else if (type === "expense") {
-    return {
-      icon: "call-received",
-      color: globalStyles.danger,
-    };
-  }
-  return {
-    icon: "call-missed",
-    color: globalStyles.secondary,
-  };
-};
-
 const TransactionItem = ({ item }) => {
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat("fa-IR").format(value);
-  };
-
   const { icon, color } = getIconAndColor(item.type);
 
   return (
@@ -33,17 +12,16 @@ const TransactionItem = ({ item }) => {
       <View style={[styles.iconContainer, { backgroundColor: color }]}>
         <MaterialCommunityIcons
           name={icon}
-          size={32}
+          size={35}
           color={globalStyles.backgroundDark}
         />
       </View>
-      <View style={styles.content}>
+      <View style={styles.detailsContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.date}>{item.date}</Text>
       </View>
-      <Text style={styles.amount}>
-        {`${formatCurrency(item.amount)} تومان`}
-      </Text>
+      <Text style={styles.amountNum}>{item.amount.toLocaleString()}</Text>
+      <Text style={styles.amount}>تومان</Text>
     </View>
   );
 };
@@ -65,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  content: {
+  detailsContainer: {
     flex: 1,
     marginRight: 12,
   },
@@ -75,13 +53,18 @@ const styles = StyleSheet.create({
     color: globalStyles.secondary,
   },
   date: {
-    fontFamily: "snsBld",
+    fontFamily: "snsReg",
     fontSize: 12,
     color: globalStyles.secondary,
-    marginTop: 4,
   },
   amount: {
-    fontFamily: "snsBld",
+    fontFamily: "snsReg",
+    fontSize: 10,
+    color: globalStyles.secondary,
+    marginRight: 2,
+  },
+  amountNum: {
+    fontFamily: "snsReg",
     fontSize: 18,
     color: globalStyles.secondary,
   },
