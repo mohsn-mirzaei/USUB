@@ -1,4 +1,4 @@
-import globalStyles from "../config/globalStyles";
+import globalStyles from "../../config/globalStyles";
 
 const getIconAndColor = (type) => {
   if (type === "income") {

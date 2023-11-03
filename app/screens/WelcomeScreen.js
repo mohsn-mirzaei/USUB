@@ -1,6 +1,6 @@
 import { Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import globalStyles from "../components/config/globalStyles";
+import globalStyles from "../config/globalStyles";
 import Button from "../components/Button";
 
 const WelcomeScreen = ({ navigation }) => {

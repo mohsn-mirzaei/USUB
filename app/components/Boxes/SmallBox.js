@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import globalStyles from "../config/globalStyles";
+import globalStyles from "../../config/globalStyles";
 
 const SmallBox = ({ title }) => {
   backgroundColor =

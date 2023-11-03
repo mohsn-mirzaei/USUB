@@ -8,7 +8,7 @@ import { SafeAreaView, StyleSheet, Text } from "react-native";
 import HomeScreen from "./app/screens/HomeScreen";
 
 SplashScreen.preventAutoHideAsync();
-export default function App() {
+export default App = () => {
   const [fontsLoaded, fontError] = useFonts({
     snsReg: require("./app/assets/fonts/IranSansRegular.ttf"),
     snsBld: require("./app/assets/fonts/IranSansBold.ttf"),
@@ -25,17 +25,16 @@ export default function App() {
     console.log(fontError);
     return null;
   }
-  onLayoutRootView();
 
   return (
-    <SafeAreaView style={style.safeView}>
-      {/* <NavigationContainer>
+    <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
+      <NavigationContainer>
         <AuthNavigator />
-      </NavigationContainer> */}
-      <HomeScreen />
+      </NavigationContainer>
+      {/* <HomeScreen /> */}
     </SafeAreaView>
   );
-}
+};
 
 const style = StyleSheet.create({
   safeView: {

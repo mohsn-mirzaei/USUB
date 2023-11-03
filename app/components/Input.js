@@ -1,6 +1,6 @@
 import { Controller } from "react-hook-form";
 import { Text, TextInput } from "react-native";
-import globalStyles from "./config/globalStyles";
+import globalStyles from "../config/globalStyles";
 
 const Input = ({ control, name, rules = {}, placeholder, secureTextEntry }) => {
   return (

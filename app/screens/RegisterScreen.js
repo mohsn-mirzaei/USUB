@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
-import globalStyles from "../components/config/globalStyles";
+import globalStyles from "../config/globalStyles";
 import Button from "../components/Button";
 import Input from "../components/Input";
 

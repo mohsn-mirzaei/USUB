@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import getIconAndColor from "./getIconAndColor";
-import globalStyles from "../config/globalStyles";
+import globalStyles from "../../config/globalStyles";
 
 const TransactionItem = ({ item }) => {
   const { icon, color } = getIconAndColor(item.type);
