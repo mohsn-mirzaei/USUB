@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text, FlatList } from "react-native";
 
-import BigBox from "../components/Boxes/BigBox";
-import SmallBox from "../components/Boxes/SmallBox";
-import TransactionItem from "../components/Transaction/TransactionItem";
+import BigBox from "../components/boxes/BigBox";
+import SmallBox from "../components/boxes/SmallBox";
+import TransactionItem from "../components/transaction/TransactionItem";
 import globalStyles from "../config/globalStyles";
 
 const data = [

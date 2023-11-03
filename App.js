@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Constants from "expo-constants";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 import HomeScreen from "./app/screens/HomeScreen";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
@@ -28,7 +29,7 @@ export default App = () => {
 
   return (
     <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-      <NavigationContainer>
+      <NavigationContainer theme={navigationTheme}>
         <AuthNavigator />
       </NavigationContainer>
       {/* <HomeScreen /> */}
