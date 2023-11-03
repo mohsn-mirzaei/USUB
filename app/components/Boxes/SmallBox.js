@@ -31,7 +31,7 @@ const SmallBox = ({ title }) => {
       </Text>
       <Text
         style={{ fontFamily: "snsReg" }}
-        className="text-xl text-backgroundDark"
+        className="text-sm text-backgroundDark"
       >
         تومان
       </Text>

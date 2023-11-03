@@ -1,54 +1,40 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../../config/globalStyles";
 
 const BixBox = () => {
   return (
-    <View style={styles.container}>
+    <View className="w-[350] h-[128] bg-yellow rounded-3xl flex-row-reverse items-center justify-center">
       <MaterialCommunityIcons
         name="chart-line"
         size={58}
         color={globalStyles.backgroundDark}
       />
-      <View style={styles.detailsContainer}>
-        <Text style={styles.label}>مانده</Text>
-        <View style={styles.amountDetail}>
-          <Text style={styles.amount}>تومان</Text>
-          <Text style={styles.amount}>۳۰,۰۰۰,۰۰۰,۰۰۰</Text>
+      <View className="px-5">
+        <Text
+          style={{ fontFamily: "snsBld" }}
+          className="text-3xl text-backgroundDark leading-[46px]"
+        >
+          مانده
+        </Text>
+        <View className="flex-row items-end">
+          <Text
+            style={{ fontFamily: "snsReg" }}
+            className="text-sm text-backgroundDark mr-1"
+          >
+            تومان
+          </Text>
+          <Text
+            style={{ fontFamily: "snsReg" }}
+            className="text-xl text-backgroundDark"
+          >
+            ۳۰,۰۰۰,۰۰۰,۰۰۰
+          </Text>
         </View>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: 350,
-    height: 128,
-    backgroundColor: globalStyles.yellow,
-    borderRadius: 20,
-    flexDirection: "row-reverse",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  detailsContainer: {
-    paddingHorizontal: 20,
-  },
-  amountDetail: {
-    flexDirection: "row",
-  },
-  amount: {
-    fontFamily: "snsReg",
-    fontSize: 20,
-    color: globalStyles.backgroundDark,
-    marginRight: 10,
-  },
-  label: {
-    fontFamily: "snsBld",
-    fontSize: 28,
-    color: globalStyles.backgroundDark,
-  },
-});
 
 export default BixBox;
