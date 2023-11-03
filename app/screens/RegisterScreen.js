@@ -56,7 +56,7 @@ const RegisterScreen = () => {
       />
 
       <Button
-        title="ورود"
+        title="ثبت نام"
         onPress={handleSubmit(onSubmit)}
         bg="primary"
         textColor="secondary"
