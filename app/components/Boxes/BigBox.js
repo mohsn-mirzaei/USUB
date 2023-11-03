@@ -5,7 +5,7 @@ import globalStyles from "../../config/globalStyles";
 
 const BixBox = () => {
   return (
-    <View className="w-[350] h-[128] bg-yellow rounded-3xl flex-row-reverse items-center justify-center">
+    <View className="w-[336] h-[128] bg-yellow rounded-3xl flex-row-reverse items-center justify-center">
       <MaterialCommunityIcons
         name="chart-line"
         size={58}

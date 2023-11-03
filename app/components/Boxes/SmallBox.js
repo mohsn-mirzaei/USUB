@@ -10,7 +10,7 @@ const SmallBox = ({ title }) => {
   return (
     <View
       style={{ backgroundColor }}
-      className="w-[170] h-[140] rounded-3xl items-center justify-around"
+      className="w-[156] h-[140] rounded-3xl items-center justify-around mx-2 mb-4"
     >
       <MaterialCommunityIcons
         name={title === "دریافت‌ها" ? "call-made" : "call-received"}
