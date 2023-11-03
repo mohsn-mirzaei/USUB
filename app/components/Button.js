@@ -1,4 +1,3 @@
-import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 function Button({ title, onPress, bg, textColor = "blackLight" }) {
