@@ -29,10 +29,10 @@ export default App = () => {
 
   return (
     <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-      <NavigationContainer theme={navigationTheme}>
+      {/* <NavigationContainer theme={navigationTheme}>
         <AuthNavigator />
-      </NavigationContainer>
-      {/* <HomeScreen /> */}
+      </NavigationContainer> */}
+      <HomeScreen />
     </SafeAreaView>
   );
 };

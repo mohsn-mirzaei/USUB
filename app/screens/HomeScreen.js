@@ -1,9 +1,8 @@
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 
 import BigBox from "../components/boxes/BigBox";
 import SmallBox from "../components/boxes/SmallBox";
 import TransactionItem from "../components/transaction/TransactionItem";
-import globalStyles from "../config/globalStyles";
 
 const data = [
   {
@@ -80,16 +79,26 @@ const data = [
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>آمار تراکنش‌ها</Text>
-      <View style={styles.boxesContainer}>
-        <View style={styles.smallBoxContainer}>
+    <View className="bg-backgroundDark px-4">
+      <Text
+        style={{ fontFamily: "snsBld" }}
+        className="text-secondary text-base leading-10 mr-2"
+      >
+        آمار تراکنش‌ها
+      </Text>
+      <View className="bg-backgroundLight rounded-3xl items-center py-4 flex ">
+        <View className="flex-row">
           <SmallBox title="دریافت‌ها" />
           <SmallBox title="پرداخت‌ها" />
         </View>
         <BigBox />
       </View>
-      <Text style={styles.text}>تراکنش‌های اخیر</Text>
+      <Text
+        style={{ fontFamily: "snsBld" }}
+        className=" text-secondary text-base leading-10 mr-2"
+      >
+        تراکنش‌های اخیر
+      </Text>
       <FlatList
         data={data}
         keyExtractor={(item) => item.id.toString()}
@@ -98,30 +107,5 @@ const HomeScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: globalStyles.backgroundDark,
-    paddingHorizontal: 8,
-  },
-  boxesContainer: {
-    backgroundColor: globalStyles.backgroundLight,
-    borderRadius: 22,
-    alignItems: "center",
-    paddingVertical: 16,
-    gap: 12,
-  },
-  smallBoxContainer: {
-    flexDirection: "row",
-    gap: 12,
-  },
-  text: {
-    color: globalStyles.secondary,
-    fontFamily: "snsReg",
-    marginRight: 10,
-    marginTop: 10,
-  },
-});
 
 export default HomeScreen;
