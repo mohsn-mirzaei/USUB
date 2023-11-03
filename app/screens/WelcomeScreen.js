@@ -1,7 +1,9 @@
 import { Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+
 import globalStyles from "../config/globalStyles";
 import Button from "../components/Button";
+import routes from "../navigation/routes";
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -45,12 +47,12 @@ const WelcomeScreen = ({ navigation }) => {
           title="ورود"
           bg="primary"
           textColor="secondary"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
         <Button
           title="ثبت نام"
           bg="secondary"
-          onPress={() => navigation.navigate("Register")}
+          onPress={() => navigation.navigate(routes.REGISTER)}
         />
       </LinearGradient>
     </View>
