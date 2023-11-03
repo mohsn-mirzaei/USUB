@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text } from "react-native";
 
-import BigBox from "../components/BixBox";
-import SmallBox from "../components/SmallBox";
-import TransactionList from "../components/TransactionList";
+import BigBox from "../components/Boxs/BixBox";
+import SmallBox from "../components/Boxs/SmallBox";
+import TransactionList from "../components/Transaction/TransactionList";
 import globalStyles from "../components/config/globalStyles";
 
 const HomeScreen = () => {

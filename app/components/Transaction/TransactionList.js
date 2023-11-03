@@ -1,7 +1,7 @@
 import { View, FlatList, StyleSheet } from "react-native";
 
 import TransactionItem from "./TransactionItem";
-import globalStyles from "./config/globalStyles";
+import globalStyles from "../config/globalStyles";
 
 const data = [
   {

@@ -1,28 +1,27 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import globalStyles from "./config/globalStyles";
+import globalStyles from "../config/globalStyles";
+
+const getIconAndColor = (type) => {
+  if (type === "income") {
+    return {
+      icon: "call-made",
+      color: globalStyles.green,
+    };
+  } else if (type === "expense") {
+    return {
+      icon: "call-received",
+      color: globalStyles.danger,
+    };
+  }
+  return {
+    icon: "call-missed",
+    color: globalStyles.secondary,
+  };
+};
 
 const TransactionItem = ({ item }) => {
-  const getIconAndColor = (type) => {
-    if (type === "income") {
-      return {
-        icon: "call-made",
-        color: globalStyles.green,
-      };
-    } else if (type === "expense") {
-      return {
-        icon: "call-received",
-        color: globalStyles.danger,
-      };
-    }
-
-    return {
-      icon: "call-missed",
-      color: globalStyles.secondary,
-    };
-  };
-
   const formatCurrency = (value) => {
     return new Intl.NumberFormat("fa-IR").format(value);
   };
@@ -32,7 +31,11 @@ const TransactionItem = ({ item }) => {
   return (
     <View style={styles.item}>
       <View style={[styles.iconContainer, { backgroundColor: color }]}>
-        <MaterialCommunityIcons name={icon} size={32} color="#0A0440" />
+        <MaterialCommunityIcons
+          name={icon}
+          size={32}
+          color={globalStyles.backgroundDark}
+        />
       </View>
       <View style={styles.content}>
         <Text style={styles.title}>{item.title}</Text>
