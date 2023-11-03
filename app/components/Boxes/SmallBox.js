@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../../config/globalStyles";
@@ -8,37 +8,35 @@ const SmallBox = ({ title }) => {
     title === "دریافت‌ها" ? globalStyles.green : globalStyles.danger;
 
   return (
-    <View style={[styles.container, { backgroundColor }]}>
+    <View
+      style={{ backgroundColor }}
+      className="w-[170] h-[140] rounded-3xl items-center justify-around"
+    >
       <MaterialCommunityIcons
         name={title === "دریافت‌ها" ? "call-made" : "call-received"}
         size={48}
         color={globalStyles.backgroundDark}
       />
-      <Text style={styles.label}>{title}</Text>
-      <Text style={styles.amount}>۳۰,۰۰۰,۰۰۰,۰۰۰</Text>
-      <Text style={styles.amount}>تومان</Text>
+      <Text
+        style={{ fontFamily: "snsBld" }}
+        className="text-3xl text-backgroundDark leading-[46px]"
+      >
+        {title}
+      </Text>
+      <Text
+        style={{ fontFamily: "snsReg" }}
+        className="text-xl text-backgroundDark"
+      >
+        ۳۰,۰۰۰,۰۰۰,۰۰۰
+      </Text>
+      <Text
+        style={{ fontFamily: "snsReg" }}
+        className="text-xl text-backgroundDark"
+      >
+        تومان
+      </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: 170,
-    height: 140,
-    borderRadius: 20,
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-  amount: {
-    fontFamily: "snsReg",
-    fontSize: 20,
-    color: globalStyles.backgroundDark,
-  },
-  label: {
-    fontFamily: "snsBld",
-    fontSize: 28,
-    color: globalStyles.backgroundDark,
-  },
-});
 
 export default SmallBox;
