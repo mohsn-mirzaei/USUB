@@ -6,6 +6,7 @@ export default navigationTheme = {
   colors: {
     ...DefaultTheme.colors,
     primary: globalStyles.primary,
-    card: globalStyles.blackLight,
+    text: globalStyles.secondary,
+    card: globalStyles.backgroundLight,
   },
 };

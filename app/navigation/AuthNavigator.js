@@ -5,6 +5,7 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import BackRightHeader from "../components/navigation/BackRightHeader";
+import globalStyles from "../config/globalStyles";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,9 @@ const AuthNavigator = () => (
     screenOptions={{
       title: "",
       headerBackVisible: false,
+      headerStyle: {
+        backgroundColor: globalStyles.blackLight,
+      },
     }}
   >
     <Stack.Screen
