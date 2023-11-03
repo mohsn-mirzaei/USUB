@@ -1,6 +1,7 @@
 import { View, FlatList, StyleSheet } from "react-native";
 
 import TransactionItem from "./TransactionItem";
+import globalStyles from "./config/globalStyles";
 
 const data = [
   {
@@ -94,10 +95,9 @@ const TransactionList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0A0440",
+    backgroundColor: globalStyles.backgroundDark,
     paddingHorizontal: 8,
     marginTop: 5,
-    // paddingVertical: 5,
   },
 });
 

@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 import BigBox from "../components/BixBox";
 import SmallBox from "../components/SmallBox";
 import TransactionList from "../components/TransactionList";
+import globalStyles from "../components/config/globalStyles";
 
 const HomeScreen = () => {
   return (
@@ -15,13 +16,13 @@ const HomeScreen = () => {
               title="دریافت‌ها"
               name="call-made"
               width={170}
-              backgroundColor="#67E1CC"
+              backgroundColor={globalStyles.green}
             />
             <SmallBox
               title="پرداخت‌ها"
               name="call-received"
               width={170}
-              backgroundColor="#E05176"
+              backgroundColor={globalStyles.danger}
             />
           </View>
           <BigBox title="مانده" name="chart-line" />
@@ -38,10 +39,10 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0A0440",
+    backgroundColor: globalStyles.backgroundDark,
   },
   topHalfContainer: {
-    backgroundColor: "#12124D",
+    backgroundColor: globalStyles.backgroundLight,
     borderRadius: 22,
     flex: 1,
     alignItems: "center",
@@ -58,10 +59,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    color: "#EED4C9",
+    color: globalStyles.secondary,
     fontFamily: "snsReg",
     marginRight: 10,
-    // marginBottom: 10,
     marginTop: 10,
   },
 });

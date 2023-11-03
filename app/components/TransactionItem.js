@@ -1,23 +1,25 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import globalStyles from "./config/globalStyles";
+
 const TransactionItem = ({ item }) => {
   const getIconAndColor = (type) => {
     if (type === "income") {
       return {
         icon: "call-made",
-        color: "#67E1CC",
+        color: globalStyles.green,
       };
     } else if (type === "expense") {
       return {
         icon: "call-received",
-        color: "#E05176",
+        color: globalStyles.danger,
       };
     }
 
     return {
       icon: "call-missed",
-      color: "#FFFFFF",
+      color: globalStyles.secondary,
     };
   };
 
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: 22,
-    backgroundColor: "#12124D",
+    backgroundColor: globalStyles.backgroundLight,
   },
   iconContainer: {
     width: 48,
@@ -67,20 +69,18 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "snsBld",
     fontSize: 16,
-    // fontWeight: "bold",
-    color: "#EED4C9",
+    color: globalStyles.secondary,
   },
   date: {
     fontFamily: "snsBld",
     fontSize: 12,
-    color: "#EED4C9",
+    color: globalStyles.secondary,
     marginTop: 4,
   },
   amount: {
     fontFamily: "snsBld",
     fontSize: 18,
-    color: "#EED4C9",
-    // fontWeight: "bold",
+    color: globalStyles.secondary,
   },
 });
 
