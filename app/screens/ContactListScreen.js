@@ -1,88 +1,60 @@
 import { useState } from "react";
-import { FlatList, View } from "react-native";
+import { Button, FlatList, Modal, View } from "react-native";
 
 import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
 import globalStyles from "../config/globalStyles";
 import Icon from "../components/Icon";
+import AddButton from "../components/AddButton";
+import AddContact from "../components/AddContact";
 
 const contactsList = [
   {
-    id: "1",
-    name: "محسن میرزایی",
-    remainingAmount: "۵۰۰ تومان",
-    accountSide: "فروشنده",
+    id: 1,
+    personName: "محسن میرزایی",
+    amountBalanse: "0",
+    personType: "هر چیزی میتونه باشه",
   },
   {
-    id: "2",
-    name: "سعید توازانی",
-    remainingAmount: "۲۰۰ تومان",
-    accountSide: "فروشنده",
+    id: 2,
+    personName: "محسن میرزایی",
+    amountBalanse: "4234324",
+    personType: "هر چیزی میتونه باشه",
   },
   {
-    id: "5",
-    name: "مهندس میرزایی",
-    remainingAmount: "۱۵۰ تومان",
-    accountSide: "خریدار-فروشنده",
+    id: 4,
+    personName: "محسن میرزایی",
+    amountBalanse: "354534",
+    personType: "هر چیزی میتونه باشه",
   },
   {
-    id: "6",
-    name: "علی رفیعی",
-    remainingAmount: "۱۰۰ تومان",
-    accountSide: "خریدار",
+    id: 44,
+    personName: "محسن میرزایی",
+    amountBalanse: "2345325",
+    personType: "هر چیزی میتونه باشه",
   },
   {
-    id: "7",
-    name: "مهندس سادات",
-    remainingAmount: "۳۰۰ تومان",
-    accountSide: "خریدار",
-  },
-  {
-    id: "8",
-    name: "مهندس سپهرزاد",
-    remainingAmount: "۱۵۰ تومان",
-    accountSide: "خریدار-فروشنده",
-  },
-  {
-    id: "9",
-    name: "محسن میرزایی",
-    remainingAmount: "۵۰۰ تومان",
-    accountSide: "فروشنده",
-  },
-  {
-    id: "10",
-    name: "سعید توازانی",
-    remainingAmount: "۲۰۰ تومان",
-    accountSide: "فروشنده",
-  },
-  {
-    id: "11",
-    name: "مهندس میرزایی",
-    remainingAmount: "۱۵۰ تومان",
-    accountSide: "خریدار-فروشنده",
-  },
-  {
-    id: "12",
-    name: "علی رفیعی",
-    remainingAmount: "۱۰۰ تومان",
-    accountSide: "خریدار",
-  },
-  {
-    id: "13",
-    name: "مهندس سادات",
-    remainingAmount: "۳۰۰ تومان",
-    accountSide: "خریدار",
-  },
-  {
-    id: "14",
-    name: "مهندس سپهرزاد",
-    remainingAmount: "۱۵۰ تومان",
-    accountSide: "خریدار-فروشنده",
+    id: 22,
+    personName: "محسن میرزایی",
+    amountBalanse: "0",
+    personType: "هر چیزی میتونه باشه",
   },
 ];
 
 const ContactListScreen = () => {
   const [contacts, setContacts] = useState(contactsList);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleAddContact = (data) => {
+    const newContact = {
+      id: Date.now().toString(),
+      personName: data.personName,
+      amountBalanse: "0",
+      personType: data.personType === undefined ? "" : data.personType,
+    };
+    setContacts([...contacts, newContact]);
+    setModalVisible(false);
+  };
 
   return (
     <View className="flex-1 bg-backgroundDark">
@@ -101,12 +73,17 @@ const ContactListScreen = () => {
                 size={50}
               />
             }
-            title={item.name}
-            subTitle={item.accountSide}
-            amount={item.remainingAmount}
+            title={item.personName}
+            subTitle={item.personType}
+            amount={item.amountBalanse}
           />
         )}
       />
+      <AddButton onPress={() => setModalVisible(true)} />
+      <Modal visible={modalVisible} animationType="slide">
+        <Button title="بستن" onPress={() => setModalVisible(false)} />
+        <AddContact handleAddContact={handleAddContact} />
+      </Modal>
     </View>
   );
 };
