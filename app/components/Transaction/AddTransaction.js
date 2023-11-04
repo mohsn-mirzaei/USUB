@@ -1,18 +1,22 @@
+import { useEffect, useState } from "react";
 import { Text, View, TouchableOpacity, Modal } from "react-native";
 import { useForm } from "react-hook-form";
+import moment from "moment-jalaali";
 
 import globalStyles from "../../config/globalStyles";
 import Input from "../Input";
 import Button from "../Button";
-import { useEffect, useState } from "react";
 import PersianDate from "../PersianDate";
 
 const AddTransaction = ({ handleAddTransaction }) => {
+  moment.locale("fa");
+  moment.loadPersian({ dialect: "persian-modern" });
+
   const [modalVisible, setModalVisible] = useState(false);
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(moment(date).format("dddd jD jMMMM jYYYY"));
 
   useEffect(() => {
-    setValue("date", date.toString());
+    setValue("date", date);
   }, []);
 
   const {
@@ -23,7 +27,8 @@ const AddTransaction = ({ handleAddTransaction }) => {
   } = useForm();
 
   const onDateChange = (date) => {
-    setDate(date);
+    const persianDate = moment(date).format("dddd jD jMMMM jYYYY");
+    setDate(persianDate);
     setModalVisible(false);
   };
 

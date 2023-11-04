@@ -19,7 +19,7 @@ const TransactionItem = ({ item }) => {
           color={globalStyles.backgroundDark}
         />
       </View>
-      <View className="flex-1 mr-3">
+      <View className="flex-1 mr-3 items-end">
         <Text
           style={{ fontFamily: "snsBld" }}
           className="text-lg text-secondary"

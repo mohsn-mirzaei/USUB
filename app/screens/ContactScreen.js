@@ -84,7 +84,6 @@ const ContactScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAddTransaction = (data) => {
-    console.log(data);
     const newTransaction = {
       id: Date.now().toString(),
       title: data.title,
@@ -95,6 +94,7 @@ const ContactScreen = () => {
     setTransactions([...transaction, newTransaction]);
     setModalVisible(false);
   };
+
   return (
     <View className="flex-1 bg-backgroundDark px-4">
       <Text
