@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import routes from "./routes";
 import HomeScreen from "../screens/HomeScreen";
 import CategoryListScreen from "../screens/CategoryListScreen";
 import ContactListScreen from "../screens/ContactListScreen";
@@ -10,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => (
   <Tab.Navigator
-    initialRouteName="خانه"
+    initialRouteName={routes.HOME}
     screenOptions={{
       tabBarHideOnKeyboard: true,
       headerShown: false,
@@ -18,7 +19,7 @@ const AppNavigator = () => (
     }}
   >
     <Tab.Screen
-      name="تنظیمات"
+      name={routes.SETTING}
       component={AccountScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
@@ -31,7 +32,7 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="اشخاص"
+      name={routes.PERSONS}
       component={ContactListScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
@@ -44,7 +45,7 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="تراکنش‌ها"
+      name={routes.TRANSACTIONS}
       component={CategoryListScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
@@ -57,7 +58,7 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name="خانه"
+      name={routes.HOME}
       component={HomeScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
