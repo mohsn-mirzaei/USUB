@@ -1,10 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import routes from "./routes";
-import BackRightHeader from "../components/navigation/BackRightHeader";
 import ContactListScreen from "../screens/ContactListScreen";
 import ContactScreen from "../screens/ContactScreen";
-import { Text, View } from "react-native";
 import ContactHeader from "../components/navigation/ContactHeader";
 
 const Stack = createNativeStackNavigator();
