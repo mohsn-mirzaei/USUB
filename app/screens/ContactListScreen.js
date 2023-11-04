@@ -16,30 +16,40 @@ const contactsList = [
     personName: "محسن ",
     amountBalanse: "0",
     personType: "هر چیزی میتونه باشه",
+    totalSum: "122,000,000",
+    remained: "12,222,222",
   },
   {
     id: 2,
     personName: " میرزایی",
     amountBalanse: "4234324",
     personType: "هر چیزی میتونه باشه",
+    totalSum: "222,000,000",
+    remained: "333,222,222",
   },
   {
     id: 4,
     personName: "محسن 55",
     amountBalanse: "354534",
     personType: "هر چیزی میتونه باشه",
+    totalSum: "122,000,000",
+    remained: "12,222,222,000",
   },
   {
     id: 44,
     personName: "555 میرزایی",
     amountBalanse: "2345325",
     personType: "هر چیزی میتونه باشه",
+    totalSum: "122,123,000",
+    remained: "12,222,444",
   },
   {
     id: 22,
     personName: "محسن 474",
     amountBalanse: "0",
     personType: "هر چیزی میتونه باشه",
+    totalSum: "444,000,000",
+    remained: "777,222,222",
   },
 ];
 
@@ -67,7 +77,12 @@ const ContactListScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <ListItem
             onPress={() =>
-              navigation.navigate(routes.PESRON, { title: item.personName })
+              navigation.navigate(routes.PESRON, {
+                personName: item.personName,
+                personType: item.personType,
+                totalSum: item.totalSum,
+                remained: item.remained,
+              })
             }
             IconComponent={
               <Icon

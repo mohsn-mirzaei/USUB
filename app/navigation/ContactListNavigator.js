@@ -4,6 +4,8 @@ import routes from "./routes";
 import BackRightHeader from "../components/navigation/BackRightHeader";
 import ContactListScreen from "../screens/ContactListScreen";
 import ContactScreen from "../screens/ContactScreen";
+import { Text, View } from "react-native";
+import ContactHeader from "../components/navigation/ContactHeader";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,8 +26,11 @@ const ContactListNavigator = () => (
       component={ContactScreen}
       options={({ navigation, route }) => ({
         headerRight: () => (
-          <BackRightHeader
-            title={route.params.title}
+          <ContactHeader
+            personName={route.params.personName}
+            personType={route.params.personType}
+            totalSum={route.params.totalSum}
+            remained={route.params.remained}
             onPress={() => navigation.navigate(routes.PERSONS)}
           />
         ),

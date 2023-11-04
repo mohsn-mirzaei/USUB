@@ -18,7 +18,7 @@ const BixBox = () => {
         >
           مانده
         </Text>
-        <View className="flex-row items-end">
+        <View className="flex-row items-center">
           <Text
             style={{ fontFamily: "snsReg" }}
             className="text-sm text-backgroundDark mr-1"
