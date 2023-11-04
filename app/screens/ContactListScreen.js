@@ -8,41 +8,42 @@ import Icon from "../components/Icon";
 import AddButton from "../components/AddButton";
 import AddContact from "../components/AddContact";
 import Button from "../components/Button";
+import routes from "../navigation/routes";
 
 const contactsList = [
   {
     id: 1,
-    personName: "محسن میرزایی",
+    personName: "محسن ",
     amountBalanse: "0",
     personType: "هر چیزی میتونه باشه",
   },
   {
     id: 2,
-    personName: "محسن میرزایی",
+    personName: " میرزایی",
     amountBalanse: "4234324",
     personType: "هر چیزی میتونه باشه",
   },
   {
     id: 4,
-    personName: "محسن میرزایی",
+    personName: "محسن 55",
     amountBalanse: "354534",
     personType: "هر چیزی میتونه باشه",
   },
   {
     id: 44,
-    personName: "محسن میرزایی",
+    personName: "555 میرزایی",
     amountBalanse: "2345325",
     personType: "هر چیزی میتونه باشه",
   },
   {
     id: 22,
-    personName: "محسن میرزایی",
+    personName: "محسن 474",
     amountBalanse: "0",
     personType: "هر چیزی میتونه باشه",
   },
 ];
 
-const ContactListScreen = () => {
+const ContactListScreen = ({ navigation }) => {
   const [contacts, setContacts] = useState(contactsList);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -65,7 +66,9 @@ const ContactListScreen = () => {
         ItemSeparatorComponent={ListItemSeparator}
         renderItem={({ item }) => (
           <ListItem
-            onPress={() => console.log(item)}
+            onPress={() =>
+              navigation.navigate(routes.PESRON, { title: item.personName })
+            }
             IconComponent={
               <Icon
                 name="account"

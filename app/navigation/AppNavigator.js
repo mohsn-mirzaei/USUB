@@ -3,9 +3,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import routes from "./routes";
 import HomeScreen from "../screens/HomeScreen";
-import ContactListScreen from "../screens/ContactListScreen";
 import AccountScreen from "../screens/AccountScreen";
 import CategoryListNavigator from "./CategoryListNavigator";
+import ContactListNavigator from "./ContactListNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ const AppNavigator = () => (
     />
     <Tab.Screen
       name={routes.PERSONS}
-      component={ContactListScreen}
+      component={ContactListNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons

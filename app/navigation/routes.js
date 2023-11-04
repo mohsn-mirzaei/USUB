@@ -7,4 +7,5 @@ export default {
   PERSONS: "اشخاص",
   TRANSACTIONS: "تراکنش‌ها",
   CATEGORY: "دسته‌بندی",
+  PESRON: "شخص",
 };
