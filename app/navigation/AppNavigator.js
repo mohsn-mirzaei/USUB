@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
+import AccountScreen from "../screens/AccountScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +17,7 @@ const AppNavigator = () => (
   >
     <Tab.Screen
       name="تنظیمات"
-      component={HomeScreen}
+      component={AccountScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons

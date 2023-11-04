@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AppNavigator from "./app/navigation/AppNavigator";
@@ -30,10 +31,12 @@ export default App = () => {
 
   return (
     <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-      <NavigationContainer theme={navigationTheme}>
-        {/* <AuthNavigator /> */}
-        <AppNavigator />
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer theme={navigationTheme}>
+          {/* <AuthNavigator /> */}
+          <AppNavigator />
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </SafeAreaView>
   );
 };
