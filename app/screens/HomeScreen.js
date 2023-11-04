@@ -79,7 +79,7 @@ const data = [
 
 const HomeScreen = () => {
   return (
-    <View className="bg-backgroundDark px-4">
+    <View className="bg-backgroundDark px-4 flex-1">
       <Text
         style={{ fontFamily: "snsBld" }}
         className="text-secondary text-base leading-10 mr-2"
