@@ -10,6 +10,7 @@ const ListItem = ({
   IconComponent,
   onPress,
   renderRightActions,
+  amount,
 }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
@@ -35,6 +36,15 @@ const ListItem = ({
               </Text>
             )}
           </View>
+          {amount && (
+            <Text
+              style={{ fontFamily: "snsReg" }}
+              className="text-secondary"
+              numberOfLines={1}
+            >
+              {amount}
+            </Text>
+          )}
           <MaterialCommunityIcons
             name="chevron-left"
             size={25}
