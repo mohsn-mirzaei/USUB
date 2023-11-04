@@ -15,10 +15,6 @@ const AddTransaction = ({ handleAddTransaction }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(moment(date).format("dddd jD jMMMM jYYYY"));
 
-  useEffect(() => {
-    setValue("date", date);
-  }, []);
-
   const {
     control,
     handleSubmit,
@@ -29,6 +25,7 @@ const AddTransaction = ({ handleAddTransaction }) => {
   const onDateChange = (date) => {
     const persianDate = moment(date).format("dddd jD jMMMM jYYYY");
     setDate(persianDate);
+    setValue("date", persianDate);
     setModalVisible(false);
   };
 
