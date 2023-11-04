@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../../config/globalStyles";
@@ -6,7 +6,7 @@ import globalStyles from "../../config/globalStyles";
 const ListItemDeleteAction = ({ onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.container}>
+      <View className="w-16 justify-center items-center bg-danger">
         <MaterialCommunityIcons
           name="trash-can"
           color={globalStyles.secondary}
@@ -16,14 +16,5 @@ const ListItemDeleteAction = ({ onPress }) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: globalStyles.danger,
-    width: 70,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default ListItemDeleteAction;
