@@ -17,7 +17,7 @@ const ListItem = ({
         <View className="flex-row-reverse p-4 bg-backgroundLight items-center">
           {IconComponent}
           {image && <Image className="w-16 h-16 rounded-full" source={image} />}
-          <View className="flex-1 mr-2 justify-center">
+          <View className="flex-1 mr-2 justify-center items-end">
             <Text
               style={{ fontFamily: "snsBld" }}
               className="text-secondary"
@@ -28,7 +28,7 @@ const ListItem = ({
             {subTitle && (
               <Text
                 style={{ fontFamily: "snsReg" }}
-                className="text-secondary text-right"
+                className="text-secondary"
                 numberOfLines={2}
               >
                 {subTitle}
