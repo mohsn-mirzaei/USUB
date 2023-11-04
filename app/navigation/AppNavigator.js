@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
+import CategoryListScreen from "../screens/CategoryListScreen";
+import ContactListScreen from "../screens/ContactListScreen";
 import AccountScreen from "../screens/AccountScreen";
 
 const Tab = createBottomTabNavigator();
@@ -30,7 +32,7 @@ const AppNavigator = () => (
     />
     <Tab.Screen
       name="اشخاص"
-      component={HomeScreen}
+      component={ContactListScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
@@ -43,7 +45,7 @@ const AppNavigator = () => (
     />
     <Tab.Screen
       name="تراکنش‌ها"
-      component={HomeScreen}
+      component={CategoryListScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
