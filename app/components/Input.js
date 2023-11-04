@@ -3,7 +3,7 @@ import { Text, TextInput } from "react-native";
 
 import globalStyles from "../config/globalStyles";
 
-const Input = ({ control, name, rules = {}, placeholder, secureTextEntry }) => {
+const Input = ({ control, name, rules = {}, placeholder, ...otherProps }) => {
   return (
     <Controller
       control={control}
@@ -25,7 +25,7 @@ const Input = ({ control, name, rules = {}, placeholder, secureTextEntry }) => {
             value={value}
             onChangeText={onChange}
             onBlur={onBlur}
-            secureTextEntry={secureTextEntry}
+            {...otherProps}
           />
           {error && (
             <Text

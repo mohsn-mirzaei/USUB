@@ -4,8 +4,9 @@ import { FlatList, Modal, Text, View } from "react-native";
 import TransactionItem from "../components/transaction/TransactionItem";
 import AddButton from "../components/AddButton";
 import Button from "../components/Button";
+import AddTransaction from "../components/transaction/AddTransaction";
 
-const data = [
+const transationsList = [
   {
     id: 1,
     title: "خرید ۱",
@@ -79,7 +80,21 @@ const data = [
 ];
 
 const ContactScreen = () => {
+  const [transaction, setTransactions] = useState(transationsList);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const handleAddTransaction = (data) => {
+    console.log(data);
+    const newTransaction = {
+      id: Date.now().toString(),
+      title: data.title,
+      amount: data.amount,
+      date: data.date,
+      type: "income",
+    };
+    setTransactions([...transaction, newTransaction]);
+    setModalVisible(false);
+  };
   return (
     <View className="flex-1 bg-backgroundDark px-4">
       <Text
@@ -89,7 +104,7 @@ const ContactScreen = () => {
         تراکنش‌ها
       </Text>
       <FlatList
-        data={data}
+        data={transaction}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TransactionItem item={item} />}
       />
@@ -100,6 +115,7 @@ const ContactScreen = () => {
           title="بستن"
           onPress={() => setModalVisible(false)}
         />
+        <AddTransaction handleAddTransaction={handleAddTransaction} />
       </Modal>
     </View>
   );
