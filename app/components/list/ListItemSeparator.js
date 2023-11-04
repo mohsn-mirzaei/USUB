@@ -1,17 +1,7 @@
-import { StyleSheet, View } from "react-native";
-
-import globalStyles from "../../config/globalStyles";
+import { View } from "react-native";
 
 const ListItemSeparator = () => {
-  return <View style={styles.separator} />;
+  return <View className="w-full h-[1] bg-blackLight" />;
 };
-
-const styles = StyleSheet.create({
-  separator: {
-    width: "100%",
-    height: 1,
-    backgroundColor: globalStyles.blackLight,
-  },
-});
 
 export default ListItemSeparator;

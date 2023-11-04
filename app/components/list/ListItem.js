@@ -1,10 +1,4 @@
-import {
-  Image,
-  StyleSheet,
-  TouchableHighlight,
-  View,
-  Text,
-} from "react-native";
+import { Image, TouchableHighlight, View, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import globalStyles from "../../config/globalStyles";
@@ -20,15 +14,23 @@ const ListItem = ({
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress}>
-        <View style={styles.container}>
+        <View className="flex-row-reverse p-4 bg-backgroundLight items-center">
           {IconComponent}
-          {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailsContainer}>
-            <Text style={styles.title} numberOfLines={1}>
+          {image && <Image className="w-16 h-16 rounded-full" source={image} />}
+          <View className="flex-1 mr-2 justify-center">
+            <Text
+              style={{ fontFamily: "snsBld" }}
+              className="text-secondary"
+              numberOfLines={1}
+            >
               {title}
             </Text>
             {subTitle && (
-              <Text style={styles.subTitle} numberOfLines={2}>
+              <Text
+                style={{ fontFamily: "snsReg" }}
+                className="text-secondary text-right"
+                numberOfLines={2}
+              >
                 {subTitle}
               </Text>
             )}
@@ -43,32 +45,5 @@ const ListItem = ({
     </Swipeable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row-reverse",
-    padding: 15,
-    backgroundColor: globalStyles.backgroundLight,
-    alignItems: "center",
-  },
-  detailsContainer: {
-    flex: 1,
-    marginRight: 10,
-    justifyContent: "center",
-  },
-  image: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-  },
-  title: {
-    color: globalStyles.secondary,
-    fontWeight: "500",
-  },
-  subTitle: {
-    color: globalStyles.secondary,
-    textAlign: "right",
-  },
-});
 
 export default ListItem;

@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, View } from "react-native";
 
 import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
@@ -26,15 +26,15 @@ const menuItems = [
 
 const AccountScreen = () => {
   return (
-    <View style={styles.screen}>
-      <View style={styles.container}>
+    <View className="flex-1 bg-backgroundDark">
+      <View className="mb-5">
         <ListItem
           title="محسن میرزایی"
           subTitle="mohsn.mirzaei@gmail.com"
           image={image}
         />
       </View>
-      <View style={styles.container}>
+      <View className="mb-5">
         <FlatList
           data={menuItems}
           keyExtractor={(menuItem) => menuItem.title}
@@ -62,15 +62,5 @@ const AccountScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 20,
-  },
-  screen: {
-    flex: 1,
-    backgroundColor: globalStyles.backgroundDark,
-  },
-});
 
 export default AccountScreen;
