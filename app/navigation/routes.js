@@ -6,4 +6,5 @@ export default {
   SETTING: "تنظیمات",
   PERSONS: "اشخاص",
   TRANSACTIONS: "تراکنش‌ها",
+  CATEGORY: "دسته‌بندی",
 };

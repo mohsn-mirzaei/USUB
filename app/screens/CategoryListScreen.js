@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View, FlatList, TextInput, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import routes from "../navigation/routes";
 import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
 import globalStyles from "../config/globalStyles";
@@ -13,7 +14,7 @@ const categoriesList = [
   { id: "3", title: "منزل" },
 ];
 
-const CategoryListScreen = () => {
+const CategoryListScreen = ({ navigation }) => {
   const [categories, setCategories] = useState(categoriesList);
   const [newCategory, setNewCategory] = useState("");
 
@@ -33,7 +34,9 @@ const CategoryListScreen = () => {
         ItemSeparatorComponent={ListItemSeparator}
         renderItem={({ item }) => (
           <ListItem
-            onPress={() => console.log(item.id)}
+            onPress={() =>
+              navigation.navigate(routes.CATEGORY, { title: item.title })
+            }
             title={item.title}
             IconComponent={
               <MaterialCommunityIcons
