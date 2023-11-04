@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, FlatList, Modal, View } from "react-native";
+import { FlatList, Modal, View } from "react-native";
 
 import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
@@ -7,6 +7,7 @@ import globalStyles from "../config/globalStyles";
 import Icon from "../components/Icon";
 import AddButton from "../components/AddButton";
 import AddContact from "../components/AddContact";
+import Button from "../components/Button";
 
 const contactsList = [
   {
@@ -81,7 +82,11 @@ const ContactListScreen = () => {
       />
       <AddButton onPress={() => setModalVisible(true)} />
       <Modal visible={modalVisible} animationType="slide">
-        <Button title="بستن" onPress={() => setModalVisible(false)} />
+        <Button
+          style="p-0"
+          title="بستن"
+          onPress={() => setModalVisible(false)}
+        />
         <AddContact handleAddContact={handleAddContact} />
       </Modal>
     </View>
