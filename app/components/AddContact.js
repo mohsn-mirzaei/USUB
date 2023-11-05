@@ -25,6 +25,7 @@ const AddContact = ({ handleAddContact }) => {
         name="personName"
         placeholder="نام شخص"
         rules={{ required: "نام شخص الزامی است" }}
+        autoFocus
       />
       <Input control={control} name="personType" placeholder="نوع شخص" />
       <Button
