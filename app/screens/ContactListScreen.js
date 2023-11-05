@@ -98,7 +98,7 @@ const ContactListScreen = ({ navigation }) => {
           />
         )}
       />
-      <AddButton onPress={() => setModalVisible(true)} />
+      <AddButton onPress={() => setModalVisible(true)} isAbsolute={true} />
       <Modal visible={modalVisible} animationType="slide">
         <Button
           style="p-0"

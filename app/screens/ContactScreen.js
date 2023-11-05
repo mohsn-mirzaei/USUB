@@ -109,7 +109,7 @@ const ContactScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TransactionItem item={item} />}
       />
-      <AddButton onPress={() => setModalVisible(true)} />
+      <AddButton onPress={() => setModalVisible(true)} isAbsolute={true} />
       <Modal visible={modalVisible} animationType="slide">
         <Button
           style="p-0"
