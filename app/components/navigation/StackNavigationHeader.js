@@ -14,7 +14,10 @@ const ContactHeader = ({ title, subTitle, totalSum, remained, onPress }) => {
           color={globalStyles.secondary}
         />
       </TouchableOpacity>
-      <Text style={{ fontFamily: "snsReg" }} className="text-lg text-secondary">
+      <Text
+        style={{ fontFamily: "snsReg" }}
+        className="text-lg text-right text-secondary"
+      >
         {title}
       </Text>
 
