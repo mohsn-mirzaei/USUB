@@ -4,8 +4,8 @@ export default {
   REGISTER: "ثبت نام",
   HOME: "خانه",
   SETTING: "تنظیمات",
-  PERSONS: "اشخاص",
-  TRANSACTIONS: "تراکنش‌ها",
+  CONTACT_LIST: "اشخاص",
+  CATEGORY_LIST: "تراکنش‌ها",
   CATEGORY: "دسته‌بندی",
-  PESRON: "شخص",
+  CONTACT: "شخص",
 };

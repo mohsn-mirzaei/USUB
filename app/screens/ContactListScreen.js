@@ -77,7 +77,7 @@ const ContactListScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <ListItem
             onPress={() =>
-              navigation.navigate(routes.PESRON, {
+              navigation.navigate(routes.CONTACT, {
                 personName: item.personName,
                 personType: item.personType,
                 totalSum: item.totalSum,

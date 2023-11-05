@@ -33,8 +33,8 @@ export default App = () => {
     <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer theme={navigationTheme}>
-          <AuthNavigator />
-          {/* <AppNavigator /> */}
+          {/* <AuthNavigator /> */}
+          <AppNavigator />
         </NavigationContainer>
       </GestureHandlerRootView>
     </SafeAreaView>

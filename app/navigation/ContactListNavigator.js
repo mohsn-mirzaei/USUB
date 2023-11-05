@@ -15,12 +15,12 @@ const ContactListNavigator = () => (
     }}
   >
     <Stack.Screen
-      name={routes.PERSONS}
+      name={routes.CONTACT_LIST}
       component={ContactListScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name={routes.PESRON}
+      name={routes.CONTACT}
       component={TransactionScreen}
       options={({ navigation, route }) => ({
         headerRight: () => (
@@ -29,7 +29,7 @@ const ContactListNavigator = () => (
             subTitle={route.params.personType}
             totalSum={route.params.totalSum}
             remained={route.params.remained}
-            onPress={() => navigation.navigate(routes.PERSONS)}
+            onPress={() => navigation.navigate(routes.CONTACT_LIST)}
           />
         ),
       })}

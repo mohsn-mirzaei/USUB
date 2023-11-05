@@ -15,7 +15,7 @@ const CategoryListNavigator = () => (
     }}
   >
     <Stack.Screen
-      name={routes.TRANSACTIONS}
+      name={routes.CATEGORY_LIST}
       component={CategoryListScreen}
       options={{ headerShown: false }}
     />
@@ -28,7 +28,7 @@ const CategoryListNavigator = () => (
             title={route.params.title}
             totalSum={route.params.totalSum}
             remained={route.params.remained}
-            onPress={() => navigation.navigate(routes.TRANSACTIONS)}
+            onPress={() => navigation.navigate(routes.CATEGORY_LIST)}
           />
         ),
       })}
