@@ -89,10 +89,11 @@ const ContactScreen = () => {
       title: data.title,
       amount: data.amount,
       date: data.date,
-      type: "income",
+      type: data.type,
     };
     setTransactions([...transaction, newTransaction]);
     setModalVisible(false);
+    console.log(data);
   };
 
   return (

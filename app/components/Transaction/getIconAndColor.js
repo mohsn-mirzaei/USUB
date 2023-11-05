@@ -3,12 +3,12 @@ import globalStyles from "../../config/globalStyles";
 const getIconAndColor = (type) => {
   if (type === "income") {
     return {
-      icon: "call-made",
+      icon: "call-received",
       color: globalStyles.green,
     };
   } else if (type === "expense") {
     return {
-      icon: "call-received",
+      icon: "call-made",
       color: globalStyles.danger,
     };
   }

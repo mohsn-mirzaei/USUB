@@ -7,18 +7,28 @@ import globalStyles from "../../config/globalStyles";
 import Input from "../Input";
 import Button from "../Button";
 import PersianDate from "../PersianDate";
+import ToggleButton from "../ToggleButton";
 
 const AddTransaction = ({ handleAddTransaction }) => {
+  useEffect(() => {
+    setFocus("title");
+    setValue("date", date);
+    setValue("type", "expense");
+  }, [setFocus, setValue]);
+
   moment.locale("fa");
   moment.loadPersian({ dialect: "persian-modern" });
 
   const [modalVisible, setModalVisible] = useState(false);
   const [date, setDate] = useState(moment(date).format("dddd jD jMMMM jYYYY"));
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const {
     control,
     handleSubmit,
     setValue,
+    getValues,
+    setFocus,
     formState: { errors },
   } = useForm();
 
@@ -41,7 +51,10 @@ const AddTransaction = ({ handleAddTransaction }) => {
         control={control}
         name="title"
         placeholder="عنوان"
-        rules={{ required: "عنوان تراکنش الزامی است" }}
+        rules={{
+          required: "عنوان تراکنش الزامی است",
+        }}
+        autoFocus
       />
       <Input
         control={control}
@@ -50,13 +63,18 @@ const AddTransaction = ({ handleAddTransaction }) => {
         rules={{ required: "مبلغ تراکنش الزامی است" }}
         keyboardType="numeric"
       />
+
+      <ToggleButton
+        onPress={(value) => {
+          setSelectedIndex(value);
+          setValue("type", value === 1 ? "income" : "expense");
+        }}
+        selectedIndex={selectedIndex}
+        type={getValues("type")}
+      />
+
       <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Input
-          control={control}
-          name="date"
-          editable={false}
-          value={date.toString()}
-        />
+        <Input control={control} name="date" readOnly value={date.toString()} />
       </TouchableOpacity>
       <Modal visible={modalVisible} animationType="slide">
         <Button
