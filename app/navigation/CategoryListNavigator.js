@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import routes from "./routes";
 import StackNavigationHeader from "../components/navigation/StackNavigationHeader";
 import CategoryListScreen from "../screens/CategoryListScreen";
-import CategoryScreen from "../screens/CategoryScreen";
+import TransactionScreen from "../screens/TransactionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +21,7 @@ const CategoryListNavigator = () => (
     />
     <Stack.Screen
       name={routes.CATEGORY}
-      component={CategoryScreen}
+      component={TransactionScreen}
       options={({ navigation, route }) => ({
         headerRight: () => (
           <StackNavigationHeader

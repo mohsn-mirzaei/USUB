@@ -79,7 +79,7 @@ const transationsList = [
   },
 ];
 
-const ContactScreen = () => {
+const TransactionScreen = () => {
   const [transaction, setTransactions] = useState(transationsList);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -122,4 +122,4 @@ const ContactScreen = () => {
   );
 };
 
-export default ContactScreen;
+export default TransactionScreen;

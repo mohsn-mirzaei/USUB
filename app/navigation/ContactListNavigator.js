@@ -2,8 +2,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import routes from "./routes";
 import ContactListScreen from "../screens/ContactListScreen";
-import ContactScreen from "../screens/ContactScreen";
 import StackNavigationHeader from "../components/navigation/StackNavigationHeader";
+import TransactionScreen from "../screens/TransactionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +21,7 @@ const ContactListNavigator = () => (
     />
     <Stack.Screen
       name={routes.PESRON}
-      component={ContactScreen}
+      component={TransactionScreen}
       options={({ navigation, route }) => ({
         headerRight: () => (
           <StackNavigationHeader
