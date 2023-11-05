@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, FlatList, TextInput, TouchableOpacity } from "react-native";
+import { View, FlatList } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import routes from "../navigation/routes";
@@ -9,9 +9,9 @@ import globalStyles from "../config/globalStyles";
 import AddInput from "../components/AddInput";
 
 const categoriesList = [
-  { id: "1", title: "شخصی" },
-  { id: "2", title: "کار" },
-  { id: "3", title: "منزل" },
+  { id: "1", title: "شخصی", totalSum: "-2", remained: "0" },
+  { id: "2", title: "کار", totalSum: "122000000", remained: "1" },
+  { id: "3", title: "منزل", totalSum: "122000000", remained: "-3" },
 ];
 
 const CategoryListScreen = ({ navigation }) => {
@@ -35,7 +35,11 @@ const CategoryListScreen = ({ navigation }) => {
         renderItem={({ item }) => (
           <ListItem
             onPress={() =>
-              navigation.navigate(routes.CATEGORY, { title: item.title })
+              navigation.navigate(routes.CATEGORY, {
+                title: item.title,
+                totalSum: item.totalSum,
+                remained: item.remained,
+              })
             }
             title={item.title}
             IconComponent={

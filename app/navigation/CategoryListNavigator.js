@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import routes from "./routes";
-import BackRightHeader from "../components/navigation/BackRightHeader";
+import StackNavigationHeader from "../components/navigation/StackNavigationHeader";
 import CategoryListScreen from "../screens/CategoryListScreen";
 import CategoryScreen from "../screens/CategoryScreen";
 
@@ -24,8 +24,10 @@ const CategoryListNavigator = () => (
       component={CategoryScreen}
       options={({ navigation, route }) => ({
         headerRight: () => (
-          <BackRightHeader
+          <StackNavigationHeader
             title={route.params.title}
+            totalSum={route.params.totalSum}
+            remained={route.params.remained}
             onPress={() => navigation.navigate(routes.TRANSACTIONS)}
           />
         ),
