@@ -6,8 +6,8 @@ import moment from "moment-jalaali";
 import globalStyles from "../../config/globalStyles";
 import Input from "../Input";
 import Button from "../Button";
-import PersianDate from "../PersianDate";
-import ToggleButton from "../ToggleButton";
+import PersianDate from "./PersianDate";
+import ToggleButton from "../transaction/ToggleButton";
 
 const AddTransaction = ({ handleAddTransaction }) => {
   useEffect(() => {

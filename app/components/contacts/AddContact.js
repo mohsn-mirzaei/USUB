@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
 
-import Input from "./Input";
-import Button from "./Button";
-import globalStyles from "../config/globalStyles";
+import Input from "../Input";
+import Button from "../Button";
+import globalStyles from "../../config/globalStyles";
 
 const AddContact = ({ handleAddContact }) => {
   const {

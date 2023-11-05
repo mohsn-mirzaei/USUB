@@ -6,7 +6,7 @@ import ListItemSeparator from "../components/list/ListItemSeparator";
 import globalStyles from "../config/globalStyles";
 import Icon from "../components/Icon";
 import AddButton from "../components/AddButton";
-import AddContact from "../components/AddContact";
+import AddContact from "../components/contacts/AddContact";
 import Button from "../components/Button";
 import routes from "../navigation/routes";
 

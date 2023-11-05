@@ -1,6 +1,6 @@
 import PersianCalendarPicker from "react-native-persian-calendar-picker";
 import { View } from "react-native";
-import globalStyles from "../config/globalStyles";
+import globalStyles from "../../config/globalStyles";
 
 const PersianDate = ({ date }) => {
   return (

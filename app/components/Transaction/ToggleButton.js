@@ -1,7 +1,7 @@
 import { ButtonGroup } from "@rneui/themed";
 import { StyleSheet } from "react-native";
 
-import globalStyles from "../config/globalStyles";
+import globalStyles from "../../config/globalStyles";
 
 const ToggleButton = ({ onPress, selectedIndex, type }) => {
   return (
