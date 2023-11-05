@@ -32,7 +32,7 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name={routes.CONTACT_LIST}
+      name={routes.CONTACT_LIST_TAB}
       component={ContactListNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
@@ -45,7 +45,7 @@ const AppNavigator = () => (
       }}
     />
     <Tab.Screen
-      name={routes.CATEGORY_LIST}
+      name={routes.CATEGORY_LIST_TAB}
       component={CategoryListNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
