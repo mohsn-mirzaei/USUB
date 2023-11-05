@@ -1,4 +1,5 @@
 import { Text, TouchableOpacity } from "react-native";
+import globalStyles from "../config/globalStyles";
 
 function Button({
   title,
@@ -9,7 +10,8 @@ function Button({
 }) {
   return (
     <TouchableOpacity
-      className={`w-full items-center p-4 my-2 rounded-2xl bg-${bg} ${style}`}
+      style={{ backgroundColor: globalStyles[bg] }}
+      className={`w-full items-center p-4 my-2 rounded-2xl ${style}`}
       onPress={onPress}
     >
       <Text
