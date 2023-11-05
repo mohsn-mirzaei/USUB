@@ -13,13 +13,10 @@ const ContactHeader = ({ title, subTitle, totalSum, remained, onPress }) => {
           size={30}
           color={globalStyles.secondary}
         />
-        <Text
-          style={{ fontFamily: "snsReg" }}
-          className="text-lg text-secondary"
-        >
-          {title}
-        </Text>
       </TouchableOpacity>
+      <Text style={{ fontFamily: "snsReg" }} className="text-lg text-secondary">
+        {title}
+      </Text>
 
       {subTitle && (
         <Text
