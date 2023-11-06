@@ -8,13 +8,11 @@ import ListItemSeparator from "../components/list/ListItemSeparator";
 import globalStyles from "../config/globalStyles";
 import AddInput from "../components/AddInput";
 
-const categoriesList = [
-  { id: "1", title: "شخصی", totalSum: "-2", remained: "0" },
-  { id: "2", title: "کار", totalSum: "122000000", remained: "1" },
-  { id: "3", title: "منزل", totalSum: "122000000", remained: "-3" },
-];
+import { useSelector, useDispatch } from "react-redux";
 
 const CategoryListScreen = ({ navigation }) => {
+  const categoriesList = useSelector((state) => state.entities.categoryList);
+
   const [categories, setCategories] = useState(categoriesList);
   const [newCategory, setNewCategory] = useState("");
 
