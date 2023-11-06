@@ -6,27 +6,30 @@ import AddButton from "../components/AddButton";
 import Button from "../components/Button";
 import AddTransaction from "../components/transaction/AddTransaction";
 
-const TransactionScreen = ({ transationsList }) => {
-  console.log(transationsList);
+import { useDispatch } from "react-redux";
 
-  const [transaction, setTransactions] = useState(transationsList);
+const TransactionScreen = ({ transaction, id }) => {
+  const dispatch = useDispatch();
+
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAddTransaction = (data) => {
-    const newTransaction = {
-      title: data.title,
-      amount: data.amount,
-      date: data.date,
-      type: data.type,
-    };
-    setTransactions([...transaction, newTransaction]);
+    dispatch({
+      type: "ADD_TRANSACTION",
+      payload: {
+        id: id,
+        title: data.title,
+        amount: data.amount,
+        date: data.date,
+        type: data.type,
+      },
+    });
     setModalVisible(false);
-    console.log(data);
   };
 
   return (
     <View className="flex-1 bg-backgroundDark px-4">
-      {transaction && (
+      {transaction.length > 0 && (
         <>
           <Text
             style={{ fontFamily: "snsBld" }}

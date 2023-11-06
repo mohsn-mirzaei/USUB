@@ -1,6 +1,6 @@
 const initialState = [
   {
-    id: 1,
+    id: "1",
     personName: "محسن ",
     amountBalanse: "0",
     personType: "هر چیزی میتونه باشه",
@@ -31,7 +31,7 @@ const initialState = [
     ],
   },
   {
-    id: 2,
+    id: "2",
     personName: " میرزایی",
     amountBalanse: "4234324",
     personType: "هر چیزی میتونه باشه",
@@ -82,11 +82,26 @@ const contactListReducer = (state = initialState, action) => {
         },
       ];
     case "ADD_TRANSACTION":
-      return {
-        ...state,
-      };
+      return state.map((contact) =>
+        contact.id === action.payload.id
+          ? {
+              ...contact,
+              transaction: [
+                ...contact.transaction,
+                {
+                  id: Date.now().toString(),
+                  title: action.payload.title,
+                  amount: action.payload.amount,
+                  date: action.payload.date,
+                  type: action.payload.type,
+                },
+              ],
+            }
+          : contact
+      );
     default:
       return state;
   }
 };
+
 export default contactListReducer;
