@@ -33,6 +33,7 @@ const CategoryListScreen = ({ navigation }) => {
           <ListItem
             onPress={() =>
               navigation.navigate(routes.CATEGORY, {
+                categoryId: item.id,
                 title: item.title,
                 totalSum: item.totalSum,
                 remained: item.remained,

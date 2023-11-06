@@ -36,6 +36,7 @@ const ContactListScreen = ({ navigation }) => {
           <ListItem
             onPress={() =>
               navigation.navigate(routes.CONTACT, {
+                personId: item.id,
                 personName: item.personName,
                 personType: item.personType,
                 totalSum: item.totalSum,

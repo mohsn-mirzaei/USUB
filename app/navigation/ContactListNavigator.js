@@ -22,7 +22,10 @@ const ContactListNavigator = () => (
     <Stack.Screen
       name={routes.CONTACT}
       component={({ route }) => (
-        <TransactionScreen transationsList={route.params.transaction} />
+        <TransactionScreen
+          transaction={route.params.transaction}
+          id={route.params.personId}
+        />
       )}
       options={({ navigation, route }) => ({
         headerRight: () => (
