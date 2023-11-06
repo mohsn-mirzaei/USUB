@@ -31,6 +31,7 @@ const ContactListNavigator = () => (
             subTitle={route.params.personType}
             totalSum={route.params.totalSum}
             remained={route.params.remained}
+            length={route.params.transaction.length > 0}
             onPress={() => navigation.navigate(routes.CONTACT_LIST)}
           />
         ),

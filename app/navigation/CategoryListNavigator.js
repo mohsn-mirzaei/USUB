@@ -30,6 +30,7 @@ const CategoryListNavigator = () => (
             title={route.params.title}
             totalSum={route.params.totalSum}
             remained={route.params.remained}
+            length={route.params.transaction.length > 0}
             onPress={() => navigation.navigate(routes.CATEGORY_LIST)}
           />
         ),

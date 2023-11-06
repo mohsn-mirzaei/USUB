@@ -3,8 +3,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import globalStyles from "../../config/globalStyles";
 import MediumBox from "../boxes/MediumBox";
 
-const ContactHeader = ({ title, subTitle, totalSum, remained, onPress }) => {
-  console.log(totalSum, remained);
+const ContactHeader = ({
+  title,
+  subTitle,
+  totalSum,
+  remained,
+  onPress,
+  length,
+}) => {
   return (
     <View className="gap-2 w-full">
       <TouchableOpacity className="flex-col items-end" onPress={onPress}>
@@ -30,7 +36,7 @@ const ContactHeader = ({ title, subTitle, totalSum, remained, onPress }) => {
         </Text>
       )}
 
-      {totalSum && remained && (
+      {length && (
         <View className="w-full px-2">
           <MediumBox
             bg="yellow"
