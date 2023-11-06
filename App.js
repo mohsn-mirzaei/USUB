@@ -28,8 +28,6 @@ export default App = () => {
   }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded && !fontError) {
-    console.log(fontsLoaded);
-    console.log(fontError);
     return null;
   }
 
