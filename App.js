@@ -1,14 +1,19 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
+import { useCallback } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+
+import { useFonts } from "expo-font";
+import Constants from "expo-constants";
+import * as SplashScreen from "expo-splash-screen";
+
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import AppNavigator from "./app/navigation/AppNavigator";
-
-import { useCallback } from "react";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import Constants from "expo-constants";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
 import navigationTheme from "./app/navigation/navigationTheme";
+
+import { Provider } from "react-redux";
+import store from "./app/store";
+import TestRedux from "./app/store/TestRedux";
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
@@ -30,14 +35,17 @@ export default App = () => {
   }
 
   return (
-    <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer theme={navigationTheme}>
-          {/* <AuthNavigator /> */}
-          <AppNavigator />
-        </NavigationContainer>
-      </GestureHandlerRootView>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
+        {/* <GestureHandlerRootView style={{ flex: 1 }}>
+          <NavigationContainer theme={navigationTheme}>
+            <AuthNavigator />
+            <AppNavigator />
+          </NavigationContainer>
+        </GestureHandlerRootView> */}
+        <TestRedux />
+      </SafeAreaView>
+    </Provider>
   );
 };
 
