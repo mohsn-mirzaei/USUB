@@ -21,7 +21,9 @@ const CategoryListNavigator = () => (
     />
     <Stack.Screen
       name={routes.CATEGORY}
-      component={TransactionScreen}
+      component={({ route }) => (
+        <TransactionScreen transationsList={route.params.transaction} />
+      )}
       options={({ navigation, route }) => ({
         headerRight: () => (
           <StackNavigationHeader

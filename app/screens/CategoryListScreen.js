@@ -37,6 +37,7 @@ const CategoryListScreen = ({ navigation }) => {
                 title: item.title,
                 totalSum: item.totalSum,
                 remained: item.remained,
+                transaction: item.transaction,
               })
             }
             title={item.title}
