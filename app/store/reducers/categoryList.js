@@ -102,9 +102,23 @@ const categoryListReducer = (state = initialState, action) => {
         },
       ];
     case "ADD_TRANSACTION":
-      return {
-        ...state,
-      };
+      return state.map((category) =>
+        category.id === action.payload.id
+          ? {
+              ...category,
+              transaction: [
+                ...category.transaction,
+                {
+                  id: Date.now().toString(),
+                  title: action.payload.title,
+                  amount: action.payload.amount,
+                  date: action.payload.date,
+                  type: action.payload.type,
+                },
+              ],
+            }
+          : category
+      );
     default:
       return state;
   }
