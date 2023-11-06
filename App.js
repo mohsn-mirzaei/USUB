@@ -13,7 +13,6 @@ import navigationTheme from "./app/navigation/navigationTheme";
 
 import { Provider } from "react-redux";
 import store from "./app/store";
-import TestRedux from "./app/store/TestRedux";
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
@@ -37,13 +36,12 @@ export default App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-        {/* <GestureHandlerRootView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
           <NavigationContainer theme={navigationTheme}>
-            <AuthNavigator />
+            {/* <AuthNavigator /> */}
             <AppNavigator />
           </NavigationContainer>
-        </GestureHandlerRootView> */}
-        <TestRedux />
+        </GestureHandlerRootView>
       </SafeAreaView>
     </Provider>
   );
