@@ -13,19 +13,16 @@ import routes from "../navigation/routes";
 import { useSelector, useDispatch } from "react-redux";
 
 const ContactListScreen = ({ navigation }) => {
-  const contactsList = useSelector((state) => state.entities.contactList);
+  const contacts = useSelector((state) => state.entities.contactList);
+  const dispatch = useDispatch();
 
-  const [contacts, setContacts] = useState(contactsList);
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleAddContact = (data) => {
-    const newContact = {
-      id: Date.now().toString(),
-      personName: data.personName,
-      amountBalanse: "0",
-      personType: data.personType === undefined ? "" : data.personType,
-    };
-    setContacts([...contacts, newContact]);
+    dispatch({
+      type: "ADD_CONTACT",
+      payload: { personName: data.personName, personType: data.personType },
+    });
     setModalVisible(false);
   };
 

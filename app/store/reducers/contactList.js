@@ -64,6 +64,29 @@ const initialState = [
 ];
 
 const contactListReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_CONTACT":
+      return [
+        ...state,
+        {
+          id: Date.now().toString(),
+          amountBalanse: "0",
+          personName: action.payload.personName,
+          personType:
+            action.payload.personType === undefined
+              ? ""
+              : action.payload.personType,
+          totalSum: "",
+          remained: "",
+          transaction: [],
+        },
+      ];
+    case "ADD_TRANSACTION":
+      return {
+        ...state,
+      };
+    default:
+      return state;
+  }
 };
 export default contactListReducer;
