@@ -21,7 +21,9 @@ const ContactListNavigator = () => (
     />
     <Stack.Screen
       name={routes.CONTACT}
-      component={TransactionScreen}
+      component={({ route }) => (
+        <TransactionScreen transationsList={route.params.transaction} />
+      )}
       options={({ navigation, route }) => ({
         headerRight: () => (
           <StackNavigationHeader

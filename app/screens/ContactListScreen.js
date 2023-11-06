@@ -43,6 +43,7 @@ const ContactListScreen = ({ navigation }) => {
                 personType: item.personType,
                 totalSum: item.totalSum,
                 remained: item.remained,
+                transaction: item.transaction,
               })
             }
             IconComponent={
