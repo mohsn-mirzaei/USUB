@@ -89,6 +89,24 @@ const initialState = [
 ];
 
 const categoryListReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_CATEGORY":
+      return [
+        ...state,
+        {
+          id: Date.now().toString(),
+          title: action.payload,
+          totalSum: "0",
+          remained: "0",
+          transaction: [],
+        },
+      ];
+    case "ADD_TRANSACTION":
+      return {
+        ...state,
+      };
+    default:
+      return state;
+  }
 };
 export default categoryListReducer;

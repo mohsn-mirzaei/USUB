@@ -12,14 +12,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 const CategoryListScreen = ({ navigation }) => {
   const categoriesList = useSelector((state) => state.entities.categoryList);
+  const dispatch = useDispatch();
 
-  const [categories, setCategories] = useState(categoriesList);
   const [newCategory, setNewCategory] = useState("");
 
   const addNewCategory = () => {
     if (newCategory.trim() !== "") {
-      const newCategoryItem = { id: Date.now().toString(), title: newCategory };
-      setCategories([...categories, newCategoryItem]);
+      dispatch({ type: "ADD_CATEGORY", payload: newCategory });
       setNewCategory("");
     }
   };
@@ -27,7 +26,7 @@ const CategoryListScreen = ({ navigation }) => {
   return (
     <View className="flex-1 bg-backgroundDark">
       <FlatList
-        data={categories}
+        data={categoriesList}
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={ListItemSeparator}
         renderItem={({ item }) => (
