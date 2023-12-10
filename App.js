@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -13,9 +13,12 @@ import navigationTheme from "./app/navigation/navigationTheme";
 
 import { Provider } from "react-redux";
 import store from "./app/store";
+import Authcontext from "./app/auth/context";
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
+  const [user, setUser] = useState();
+
   const [fontsLoaded, fontError] = useFonts({
     snsReg: require("./app/assets/fonts/IranSansRegular.ttf"),
     snsBld: require("./app/assets/fonts/IranSansBold.ttf"),
@@ -32,16 +35,17 @@ export default App = () => {
   }
 
   return (
-    <Provider store={store}>
-      <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <NavigationContainer theme={navigationTheme}>
-            {/* <AuthNavigator /> */}
-            <AppNavigator />
-          </NavigationContainer>
-        </GestureHandlerRootView>
-      </SafeAreaView>
-    </Provider>
+    <Authcontext.Provider value={{ user, setUser }}>
+      <Provider store={store}>
+        <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <NavigationContainer theme={navigationTheme}>
+              {!user ? <AuthNavigator /> : <AppNavigator />}
+            </NavigationContainer>
+          </GestureHandlerRootView>
+        </SafeAreaView>
+      </Provider>
+    </Authcontext.Provider>
   );
 };
 

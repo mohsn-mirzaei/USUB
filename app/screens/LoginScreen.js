@@ -1,19 +1,28 @@
+import { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
+import "core-js/stable/atob";
+import { jwtDecode } from "jwt-decode";
 
-import globalStyles from "../config/globalStyles";
-import Button from "../components/Button";
 import Input from "../components/Input";
+import Button from "../components/Button";
+import globalStyles from "../config/globalStyles";
+
+import authApi from "../api/auth";
+import Authcontext from "../auth/context";
 
 const LoginScreen = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { control, handleSubmit } = useForm();
+  const { user, setUser } = useContext(Authcontext);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async ({ email, password }) => {
+    authApi
+      .login(email, password)
+      .then((res) => {
+        const user = jwtDecode(res.data.token);
+        setUser(user);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -27,9 +36,9 @@ const LoginScreen = () => {
 
       <Input
         control={control}
-        name="username"
-        placeholder="نام کاربری، شماره موبایل یا ایمیل"
-        rules={{ required: "نام کاربری الزامی است" }}
+        name="email"
+        placeholder="ایمیل"
+        rules={{ required: "ایمیل الزامی است" }}
       />
       <Input
         control={control}
