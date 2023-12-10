@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
-import "core-js/stable/atob";
-import { jwtDecode } from "jwt-decode";
 
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -19,7 +17,7 @@ const LoginScreen = () => {
     authApi
       .login(email, password)
       .then((res) => {
-        const user = jwtDecode(res.data.token);
+        const user = res.data.data;
         setUser(user);
       })
       .catch((err) => console.log(err));

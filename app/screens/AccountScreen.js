@@ -4,6 +4,8 @@ import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
 import Icon from "../components/Icon";
 import globalStyles from "../config/globalStyles";
+import { useContext } from "react";
+import Authcontext from "../auth/context";
 
 const image = require("../assets/MohsenMirzaei.jpg");
 
@@ -25,14 +27,14 @@ const menuItems = [
 ];
 
 const AccountScreen = () => {
+  const { user } = useContext(Authcontext);
+
+  console.log(user);
+
   return (
     <View className="flex-1 bg-backgroundDark">
       <View className="mb-5">
-        <ListItem
-          title="محسن میرزایی"
-          subTitle="mohsn.mirzaei@gmail.com"
-          image={image}
-        />
+        <ListItem title={user.name} subTitle={user.email} image={image} />
       </View>
       <View className="mb-5">
         <FlatList
