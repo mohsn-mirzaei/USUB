@@ -6,8 +6,7 @@ import Icon from "../components/Icon";
 import globalStyles from "../config/globalStyles";
 import { useContext } from "react";
 import Authcontext from "../auth/context";
-
-const image = require("../assets/MohsenMirzaei.jpg");
+import authStorage from "../auth/storage";
 
 const menuItems = [
   {
@@ -32,7 +31,11 @@ const AccountScreen = () => {
   return (
     <View className="flex-1 bg-backgroundDark">
       <View className="mb-5">
-        <ListItem title={user.name} subTitle={user.email} image={image} />
+        <ListItem
+          title={user.name}
+          subTitle={user.email}
+          image={user.picture}
+        />
       </View>
       <View className="mb-5">
         <FlatList
@@ -58,7 +61,9 @@ const AccountScreen = () => {
         IconComponent={
           <Icon name="logout" backgroundColor={globalStyles.primary} />
         }
-        onPress={() => setUser(null)}
+        onPress={() => {
+          setUser(null), authStorage.removeInfo();
+        }}
       />
     </View>
   );

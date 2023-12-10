@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -14,10 +14,21 @@ import navigationTheme from "./app/navigation/navigationTheme";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import Authcontext from "./app/auth/context";
+import authStorage from "./app/auth/storage";
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
   const [user, setUser] = useState();
+
+  const restoreUserInfo = async () => {
+    const userInfo = await authStorage.getInfo();
+    if (!userInfo) return;
+    setUser(userInfo);
+  };
+
+  useEffect(() => {
+    restoreUserInfo();
+  }, []);
 
   const [fontsLoaded, fontError] = useFonts({
     snsReg: require("./app/assets/fonts/IranSansRegular.ttf"),

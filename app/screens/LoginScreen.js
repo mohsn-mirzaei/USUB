@@ -8,6 +8,7 @@ import globalStyles from "../config/globalStyles";
 
 import authApi from "../api/auth";
 import Authcontext from "../auth/context";
+import authStorage from "../auth/storage";
 
 const LoginScreen = () => {
   const { control, handleSubmit } = useForm();
@@ -17,8 +18,9 @@ const LoginScreen = () => {
     authApi
       .login(email, password)
       .then((res) => {
-        const user = res.data.data;
-        setUser(user);
+        const userInfo = res.data.data;
+        setUser(userInfo);
+        authStorage.storeInfo(userInfo);
       })
       .catch((err) => console.log(err));
   };
