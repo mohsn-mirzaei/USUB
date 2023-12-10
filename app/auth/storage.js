@@ -19,6 +19,11 @@ const getInfo = async () => {
   }
 };
 
+const getUser = async () => {
+  const userInfo = await getInfo();
+  return userInfo ? userInfo : null;
+};
+
 const removeInfo = async () => {
   try {
     await SecureStore.deleteItemAsync(key);
@@ -28,7 +33,7 @@ const removeInfo = async () => {
 };
 
 export default {
+  getUser,
   storeInfo,
-  getInfo,
   removeInfo,
 };

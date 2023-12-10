@@ -21,9 +21,8 @@ export default App = () => {
   const [user, setUser] = useState();
 
   const restoreUserInfo = async () => {
-    const userInfo = await authStorage.getInfo();
-    if (!userInfo) return;
-    setUser(userInfo);
+    const userInfo = await authStorage.getUser();
+    if (userInfo) setUser(userInfo);
   };
 
   useEffect(() => {
