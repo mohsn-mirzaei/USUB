@@ -27,9 +27,7 @@ const menuItems = [
 ];
 
 const AccountScreen = () => {
-  const { user } = useContext(Authcontext);
-
-  console.log(user);
+  const { user, setUser } = useContext(Authcontext);
 
   return (
     <View className="flex-1 bg-backgroundDark">
@@ -60,6 +58,7 @@ const AccountScreen = () => {
         IconComponent={
           <Icon name="logout" backgroundColor={globalStyles.primary} />
         }
+        onPress={() => setUser(null)}
       />
     </View>
   );
