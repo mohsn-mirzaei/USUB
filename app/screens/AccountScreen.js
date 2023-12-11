@@ -4,9 +4,8 @@ import ListItem from "../components/list/ListItem";
 import ListItemSeparator from "../components/list/ListItemSeparator";
 import Icon from "../components/Icon";
 import globalStyles from "../config/globalStyles";
-import { useContext } from "react";
-import Authcontext from "../auth/context";
-import authStorage from "../auth/storage";
+
+import useAuth from "../auth/useAuth";
 
 const menuItems = [
   {
@@ -26,7 +25,7 @@ const menuItems = [
 ];
 
 const AccountScreen = () => {
-  const { user, setUser } = useContext(Authcontext);
+  const { user, logOut } = useAuth();
 
   return (
     <View className="flex-1 bg-backgroundDark">
@@ -61,9 +60,7 @@ const AccountScreen = () => {
         IconComponent={
           <Icon name="logout" backgroundColor={globalStyles.primary} />
         }
-        onPress={() => {
-          setUser(null), authStorage.removeInfo();
-        }}
+        onPress={() => logOut()}
       />
     </View>
   );

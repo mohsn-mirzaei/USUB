@@ -1,4 +1,3 @@
-import { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
 
@@ -7,20 +6,18 @@ import Button from "../components/Button";
 import globalStyles from "../config/globalStyles";
 
 import authApi from "../api/auth";
-import Authcontext from "../auth/context";
-import authStorage from "../auth/storage";
+import useAuth from "../auth/useAuth";
 
 const LoginScreen = () => {
   const { control, handleSubmit } = useForm();
-  const { user, setUser } = useContext(Authcontext);
+
+  const { logIn } = useAuth();
 
   const onSubmit = async ({ email, password }) => {
     authApi
       .login(email, password)
       .then((res) => {
-        const userInfo = res.data.data;
-        setUser(userInfo);
-        authStorage.storeInfo(userInfo);
+        logIn(res.data.data);
       })
       .catch((err) => console.log(err));
   };
