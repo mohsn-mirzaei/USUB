@@ -3,6 +3,7 @@ export default {
   LOGIN: "ورود",
   REGISTER: "ثبت نام",
   HOME: "خانه",
+  SETTING_TAB: "صفحه تنظیمات",
   SETTING: "تنظیمات",
   CONTACT_LIST_TAB: "تراکنش‌ها",
   CATEGORY_LIST_TAB: "اشخاص",
@@ -10,4 +11,6 @@ export default {
   CATEGORY_LIST: "لیست‌تراکنش‌ها",
   CATEGORY: "دسته‌بندی",
   CONTACT: "شخص",
+  ACCOUNT: "اطلاعات کاربری",
+  EDIT: "ویرایش اطلاعات",
 };

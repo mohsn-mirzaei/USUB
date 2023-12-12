@@ -3,9 +3,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import routes from "./routes";
 import HomeScreen from "../screens/HomeScreen";
-import AccountScreen from "../screens/AccountScreen";
 import CategoryListNavigator from "./CategoryListNavigator";
 import ContactListNavigator from "./ContactListNavigator";
+import SettingNavigator from "./SettingNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,8 +19,8 @@ const AppNavigator = () => (
     }}
   >
     <Tab.Screen
-      name={routes.SETTING}
-      component={AccountScreen}
+      name={routes.SETTING_TAB}
+      component={SettingNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
