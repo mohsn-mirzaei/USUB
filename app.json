@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#5A00FB"
-      }
+      },
+      "package": "com.professor_01.USUB"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"

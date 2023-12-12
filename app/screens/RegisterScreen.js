@@ -4,16 +4,28 @@ import { useForm } from "react-hook-form";
 import globalStyles from "../config/globalStyles";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import usersApi from "../api/users";
+import authApi from "../api/auth";
+import useAuth from "../auth/useAuth";
 
 const RegisterScreen = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { control, handleSubmit, watch } = useForm();
+  const { logIn } = useAuth();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (userInfo) => {
+    const { repeatPassword, ...formUserInfo } = userInfo;
+    usersApi
+      .register(formUserInfo)
+      .then((res) => {
+        res.data.code === 204 &&
+          authApi
+            .login(userInfo.email, userInfo.password)
+            .then((res) => {
+              res.data.code === 200 && logIn(res.data.data);
+            })
+            .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -27,21 +39,27 @@ const RegisterScreen = () => {
 
       <Input
         control={control}
-        name="fullname"
+        name="name"
         placeholder="نام کامل"
         rules={{ required: "نام کامل الزامی است" }}
       />
       <Input
         control={control}
-        name="username"
-        placeholder="نام کاربری"
-        rules={{ required: "نام کاربری عبور الزامی است" }}
+        name="family"
+        placeholder="نام کامل"
+        rules={{ required: "نام کامل الزامی است" }}
       />
       <Input
         control={control}
         name="phone"
         placeholder="شماره موبایل"
         rules={{ required: "شماره موبایل عبور الزامی است" }}
+      />
+      <Input
+        control={control}
+        name="email"
+        placeholder="ایمیل"
+        rules={{ required: "ایمیل عبور الزامی است" }}
       />
       <Input
         control={control}
@@ -53,7 +71,12 @@ const RegisterScreen = () => {
         control={control}
         name="repeatPassword"
         placeholder="تکرار رمز عبور"
-        rules={{ required: "تکرار رمز عبور الزامی است" }}
+        rules={{
+          required: "تکرار رمز عبور الزامی است",
+          validate: (value) =>
+            value === watch("password", "") ||
+            "رمز عبور و تکرار آن باید یکسان باشند",
+        }}
       />
 
       <Button
