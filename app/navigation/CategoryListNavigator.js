@@ -22,7 +22,7 @@ const CategoryListNavigator = () => (
     <Stack.Screen
       name={routes.CATEGORY}
       options={({ navigation, route }) => ({
-        headerRight: () => (
+        headerLeft: () => (
           <StackNavigationHeader
             title={route.params.title}
             totalSum={route.params.totalSum}

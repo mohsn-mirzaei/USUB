@@ -16,12 +16,12 @@ const ListItem = ({
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress}>
-        <View className="flex-row-reverse p-4 bg-backgroundLight items-center">
+        <View className="flex-row p-4 bg-backgroundLight items-center">
           {IconComponent}
           {image && (
             <Image className="w-16 h-16 rounded-full" source={{ uri: image }} />
           )}
-          <View className="flex-1 mr-2 justify-center items-end gap-2">
+          <View className="flex-1 justify-center gap-2 ml-1">
             <Text
               style={{ fontFamily: "snsBld" }}
               className="text-secondary"

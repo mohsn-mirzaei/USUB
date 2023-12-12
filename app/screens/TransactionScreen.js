@@ -33,7 +33,7 @@ const TransactionScreen = ({ transaction, id }) => {
         <>
           <Text
             style={{ fontFamily: "snsBld" }}
-            className=" text-secondary text-base leading-10 mr-2"
+            className=" text-secondary text-base leading-10 ml-2"
           >
             تراکنش‌ها
           </Text>
@@ -45,7 +45,7 @@ const TransactionScreen = ({ transaction, id }) => {
           />
         </>
       )}
-      <AddButton onPress={() => setModalVisible(true)} isAbsolute={true} />
+      <AddButton onPress={() => setModalVisible(true)} />
       <Modal visible={modalVisible} animationType="slide">
         <Button
           style="p-0"

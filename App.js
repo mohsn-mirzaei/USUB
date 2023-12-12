@@ -1,10 +1,11 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { useCallback, useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, I18nManager } from "react-native";
 
 import { useFonts } from "expo-font";
 import Constants from "expo-constants";
+import * as Updates from "expo-updates";
 import * as SplashScreen from "expo-splash-screen";
 
 import AuthNavigator from "./app/navigation/AuthNavigator";
@@ -29,6 +30,13 @@ export default App = () => {
     restoreUserInfo();
   }, []);
 
+  const shouldBeRTL = true;
+  if (shouldBeRTL !== I18nManager.isRTL && Platform.OS !== "web") {
+    I18nManager.allowRTL(shouldBeRTL);
+    I18nManager.forceRTL(shouldBeRTL);
+    Updates.reloadAsync();
+  }
+
   const [fontsLoaded, fontError] = useFonts({
     snsReg: require("./app/assets/fonts/IranSansRegular.ttf"),
     snsBld: require("./app/assets/fonts/IranSansBold.ttf"),
@@ -50,7 +58,7 @@ export default App = () => {
         <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <NavigationContainer theme={navigationTheme}>
-              {!user ? <AuthNavigator /> : <AppNavigator />}
+              {false ? <AuthNavigator /> : <AppNavigator />}
             </NavigationContainer>
           </GestureHandlerRootView>
         </SafeAreaView>

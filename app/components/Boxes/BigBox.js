@@ -5,7 +5,7 @@ import globalStyles from "../../config/globalStyles";
 
 const BixBox = () => {
   return (
-    <View className="w-[336] h-[128] bg-yellow rounded-3xl flex-row-reverse items-center justify-center">
+    <View className="w-[336] h-[128] bg-yellow rounded-3xl flex-row items-center justify-center">
       <MaterialCommunityIcons
         name="chart-line"
         size={58}
@@ -21,7 +21,7 @@ const BixBox = () => {
         <View className="flex-row items-center">
           <Text
             style={{ fontFamily: "snsReg" }}
-            className="text-sm text-backgroundDark mr-1"
+            className="text-sm text-backgroundDark ml-1"
           >
             تومان
           </Text>

@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#5A00FB"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -28,6 +26,7 @@
       "favicon": "./app/assets/favicon.png"
     },
     "extra": {
+      "supportsRTL": true,
       "eas": {
         "projectId": "4f97f5a5-4848-471a-a627-a7c493feef78"
       }
@@ -37,6 +36,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/4f97f5a5-4848-471a-a627-a7c493feef78"
-    }
+    },
+    "plugins": ["expo-localization"]
   }
 }

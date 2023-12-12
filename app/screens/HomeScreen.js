@@ -82,7 +82,7 @@ const HomeScreen = () => {
     <View className="bg-backgroundDark px-4 flex-1">
       <Text
         style={{ fontFamily: "snsBld" }}
-        className="text-secondary text-base leading-10 mr-2"
+        className="text-secondary text-base leading-10 ml-2"
       >
         آمار تراکنش‌ها
       </Text>
@@ -95,7 +95,7 @@ const HomeScreen = () => {
       </View>
       <Text
         style={{ fontFamily: "snsBld" }}
-        className=" text-secondary text-base leading-10 mr-2"
+        className=" text-secondary text-base leading-10 ml-2"
       >
         تراکنش‌های اخیر
       </Text>

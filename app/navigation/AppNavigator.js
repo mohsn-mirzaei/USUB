@@ -19,12 +19,22 @@ const AppNavigator = () => (
     }}
   >
     <Tab.Screen
-      name={routes.SETTING_TAB}
-      component={SettingNavigator}
+      name={routes.HOME}
+      component={HomeScreen}
+      options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="home" color={color} size={size} />
+        ),
+      }}
+    />
+
+    <Tab.Screen
+      name={routes.CATEGORY_LIST_TAB}
+      component={CategoryListNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
-            name="account-settings"
+            name="format-list-bulleted"
             color={color}
             size={size}
           />
@@ -44,25 +54,17 @@ const AppNavigator = () => (
         ),
       }}
     />
+
     <Tab.Screen
-      name={routes.CATEGORY_LIST_TAB}
-      component={CategoryListNavigator}
+      name={routes.SETTING_TAB}
+      component={SettingNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons
-            name="format-list-bulleted"
+            name="account-settings"
             color={color}
             size={size}
           />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name={routes.HOME}
-      component={HomeScreen}
-      options={{
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
         ),
       }}
     />

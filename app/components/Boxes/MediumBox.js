@@ -6,10 +6,10 @@ import globalStyles from "../../config/globalStyles";
 const MediumBox = ({ bg, title, iconName, amount }) => {
   return (
     <View
-      className="flex-row-reverse w-full justify-between p-4 items-center rounded-2xl right-[-3] m-1"
+      className="flex-row w-full justify-between p-4 items-center rounded-2xl m-1"
       style={{ backgroundColor: globalStyles[bg] }}
     >
-      <View className="flex-row-reverse items-center gap-1">
+      <View className="flex-row items-center gap-1">
         <MaterialCommunityIcons
           name={iconName}
           color={globalStyles.backgroundDark}
@@ -22,7 +22,7 @@ const MediumBox = ({ bg, title, iconName, amount }) => {
           {title}
         </Text>
       </View>
-      <View className="flex-row-reverse items-center gap-1">
+      <View className="flex-row items-center gap-1">
         <Text
           style={{ fontFamily: "snsReg" }}
           className="text-backgroundDark text-base"

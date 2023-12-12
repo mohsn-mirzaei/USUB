@@ -12,29 +12,31 @@ const ContactHeader = ({
   length,
 }) => {
   return (
-    <View className="gap-2 w-full">
-      <TouchableOpacity className="flex-col items-end" onPress={onPress}>
+    <View className="w-full flex gap-2">
+      <TouchableOpacity className="items-start px-2" onPress={onPress}>
         <MaterialCommunityIcons
           name="arrow-right"
           size={30}
           color={globalStyles.secondary}
         />
       </TouchableOpacity>
-      <Text
-        style={{ fontFamily: "snsReg" }}
-        className="text-lg text-right text-secondary"
-      >
-        {title}
-      </Text>
-
-      {subTitle && (
+      <View className="flex gap-1 px-2">
         <Text
           style={{ fontFamily: "snsReg" }}
-          className="text-xs text-right text-opacity"
+          className="text-lg text-secondary"
         >
-          {subTitle}
+          {title}
         </Text>
-      )}
+
+        {subTitle && (
+          <Text
+            style={{ fontFamily: "snsReg" }}
+            className="text-xs text-opacity"
+          >
+            {subTitle}
+          </Text>
+        )}
+      </View>
 
       {length && (
         <View className="w-full px-2">

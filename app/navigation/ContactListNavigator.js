@@ -22,7 +22,7 @@ const ContactListNavigator = () => (
     <Stack.Screen
       name={routes.CONTACT}
       options={({ navigation, route }) => ({
-        headerRight: () => (
+        headerLeft: () => (
           <StackNavigationHeader
             title={route.params.personName}
             subTitle={route.params.personType}

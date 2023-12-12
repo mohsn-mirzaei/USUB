@@ -8,7 +8,7 @@ const TransactionItem = ({ item }) => {
   const { icon, color } = getIconAndColor(item.type);
 
   return (
-    <View className="flex-row-reverse items-center mb-3 px-4 py-3 rounded-3xl bg-backgroundLight">
+    <View className="flex-row items-center mb-3 px-4 py-3 rounded-3xl bg-backgroundLight">
       <View
         style={{ backgroundColor: color }}
         className="w-12 h-12 rounded-2xl justify-center items-center"
@@ -19,7 +19,7 @@ const TransactionItem = ({ item }) => {
           color={globalStyles.backgroundDark}
         />
       </View>
-      <View className="flex-1 mr-3 items-end">
+      <View className="flex-1 ml-3">
         <Text
           style={{ fontFamily: "snsBld" }}
           className="text-lg text-secondary"
@@ -38,7 +38,7 @@ const TransactionItem = ({ item }) => {
       </Text>
       <Text
         style={{ fontFamily: "snsReg" }}
-        className="text-xs text-secondary mr-1"
+        className="text-xs text-secondary ml-1"
       >
         تومان
       </Text>

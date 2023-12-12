@@ -3,12 +3,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import globalStyles from "../config/globalStyles";
 
-const AddButton = ({ onPress, isAbsolute }) => {
+const AddButton = ({ onPress }) => {
   return (
     <TouchableOpacity
-      className={`w-14 h-14 bg-primary opacity-75 rounded-full justify-center items-center ${
-        isAbsolute ? "absolute" : ""
-      } bottom-3 left-3`}
+      className="w-14 h-14 bg-primary opacity-75 rounded-full justify-center items-center absolute bottom-3 right-3"
       onPress={onPress}
     >
       <MaterialCommunityIcons
