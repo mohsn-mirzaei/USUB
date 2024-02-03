@@ -2,6 +2,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, I18nManager } from "react-native";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { useFonts } from "expo-font";
 import Constants from "expo-constants";
@@ -16,6 +17,8 @@ import { Provider } from "react-redux";
 import store from "./app/store";
 import Authcontext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
+
+const queryClient = new QueryClient();
 
 SplashScreen.preventAutoHideAsync();
 export default App = () => {
@@ -53,17 +56,19 @@ export default App = () => {
   }
 
   return (
-    <Authcontext.Provider value={{ user, setUser }}>
-      <Provider store={store}>
-        <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
-          <GestureHandlerRootView style={{ flex: 1 }}>
-            <NavigationContainer theme={navigationTheme}>
-              {!user ? <AuthNavigator /> : <AppNavigator />}
-            </NavigationContainer>
-          </GestureHandlerRootView>
-        </SafeAreaView>
-      </Provider>
-    </Authcontext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <Authcontext.Provider value={{ user, setUser }}>
+        <Provider store={store}>
+          <SafeAreaView style={style.safeView} onLayout={onLayoutRootView}>
+            <GestureHandlerRootView style={{ flex: 1 }}>
+              <NavigationContainer theme={navigationTheme}>
+                {!user ? <AuthNavigator /> : <AppNavigator />}
+              </NavigationContainer>
+            </GestureHandlerRootView>
+          </SafeAreaView>
+        </Provider>
+      </Authcontext.Provider>
+    </QueryClientProvider>
   );
 };
 
