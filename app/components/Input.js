@@ -29,7 +29,7 @@ const Input = ({ control, name, rules = {}, placeholder, ...otherProps }) => {
           />
           {error && (
             <Text
-              className="text-right mb-2 mt-1 text-danger"
+              className="mb-2 mt-1 text-danger"
               style={{ fontFamily: globalStyles.regular }}
             >
               {error?.message}
