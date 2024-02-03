@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 import { useForm } from "react-hook-form";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -7,8 +8,10 @@ import globalStyles from "../config/globalStyles";
 
 import authApi from "../api/auth";
 import useAuth from "../auth/useAuth";
+import { useState } from "react";
 
 const LoginScreen = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { control, handleSubmit } = useForm();
 
   const { logIn } = useAuth();
@@ -37,12 +40,22 @@ const LoginScreen = () => {
         placeholder="ایمیل"
         rules={{ required: "ایمیل الزامی است" }}
       />
-      <Input
-        control={control}
-        name="password"
-        placeholder="رمز عبور"
-        rules={{ required: "رمز عبور الزامی است" }}
-      />
+      <View>
+        <Input
+          control={control}
+          name="password"
+          placeholder="رمز عبور"
+          rules={{ required: "رمز عبور الزامی است" }}
+          secureTextEntry={!showPassword}
+        />
+        <MaterialCommunityIcons
+          name={showPassword ? "eye-off" : "eye"}
+          size={24}
+          style={{ position: "absolute", right: 10, top: 20 }}
+          color={globalStyles.opacity}
+          onPress={() => setShowPassword(!showPassword)}
+        />
+      </View>
 
       <Text
         className="text-secondary text-sm top-[-10px]"
