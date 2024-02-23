@@ -24,10 +24,10 @@ const CategoryListNavigator = () => (
       options={({ navigation, route }) => ({
         headerLeft: () => (
           <StackNavigationHeader
-            title={route.params.title}
-            totalSum={route.params.totalSum}
-            remained={route.params.remained}
-            length={route.params.transaction.length > 0}
+            // title={route.params.title}
+            // totalSum={route.params.totalSum}
+            // remained={route.params.remained}
+            // length={route.params.transaction.length > 0}
             onPress={() => navigation.navigate(routes.CATEGORY_LIST)}
           />
         ),
@@ -35,7 +35,7 @@ const CategoryListNavigator = () => (
     >
       {({ route }) => (
         <TransactionScreen
-          transaction={route.params.transaction}
+          // transaction={route.params.transaction}
           id={route.params.categoryId}
         />
       )}

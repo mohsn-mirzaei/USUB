@@ -13,6 +13,8 @@ const TransactionScreen = ({ transaction, id }) => {
 
   const [modalVisible, setModalVisible] = useState(false);
 
+  console.log(id);
+
   const handleAddTransaction = (data) => {
     dispatch({
       type: "ADD_TRANSACTION",
@@ -29,22 +31,21 @@ const TransactionScreen = ({ transaction, id }) => {
 
   return (
     <View className="flex-1 bg-backgroundDark px-4">
-      {transaction.length > 0 && (
-        <>
-          <Text
-            style={{ fontFamily: "snsBld" }}
-            className=" text-secondary text-base leading-10 ml-2"
-          >
-            تراکنش‌ها
-          </Text>
+      <>
+        <Text
+          style={{ fontFamily: "snsBld" }}
+          className=" text-secondary text-base leading-10 ml-2"
+        >
+          تراکنش‌ها
+        </Text>
 
-          <FlatList
-            data={transaction}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <TransactionItem item={item} />}
-          />
-        </>
-      )}
+        {/* <FlatList
+          data={transaction}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <TransactionItem item={item} />}
+        /> */}
+      </>
+
       <AddButton onPress={() => setModalVisible(true)} />
       <Modal visible={modalVisible} animationType="slide">
         <Button
