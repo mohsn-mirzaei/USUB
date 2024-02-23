@@ -20,7 +20,7 @@ const ContactHeader = ({
           color={globalStyles.secondary}
         />
       </TouchableOpacity>
-      <View className="flex gap-1 px-2">
+      <View className="flex gap-1 px-2 items-start">
         <Text
           style={{ fontFamily: "snsReg" }}
           className="text-lg text-secondary"

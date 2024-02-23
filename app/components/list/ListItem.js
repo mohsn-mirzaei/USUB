@@ -21,7 +21,7 @@ const ListItem = ({
           {image && (
             <Image className="w-16 h-16 rounded-full" source={{ uri: image }} />
           )}
-          <View className="flex-1 justify-center gap-2 ml-1">
+          <View className="flex-1 justify-center gap-2 ml-1 items-start">
             <Text
               style={{ fontFamily: "snsBld" }}
               className="text-secondary"
