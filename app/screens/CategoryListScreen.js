@@ -9,7 +9,7 @@ import globalStyles from "../config/globalStyles";
 import AddInput from "../components/AddInput";
 
 import { useQuery } from "@tanstack/react-query";
-import apiClinet from "../api/client";
+import getCategory from "../api/categoryList";
 
 const CategoryListScreen = ({ navigation }) => {
   const [newCategory, setNewCategory] = useState("");
@@ -28,12 +28,7 @@ const CategoryListScreen = ({ navigation }) => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await apiClinet.get("/service/list/1", {
-        headers: {
-          authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbE5hbWUiOiJzYWVpZCIsInBhc3N3b3JkIjoic2hhMSRiMDc0N2RhOSQxJDA3YjIxMmUzMDI5ZDM3NzJjODZlMjcwYWFkYjE4ZGIyMThiZmJlMGYiLCJlbWFpbCI6InNhZWlkdGF2YXphbkBnbWFpbC5jb20iLCJwaG9uZSI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyNC0wMS0zMFQxMjoyNzoxOS4wMDBaIiwidXBkYXRlZEF0IjoiMjAyNC0wMS0zMFQxMjoyNzoxOS4wMDBaIiwiaWF0IjoxNzA4Njg3NDM4LCJleHAiOjE3MDg4NjAyMzh9.fe3he1s49yUrIUy37Sjvb_fPsuBm80ONRM-j1iOSA8M",
-        },
-      });
+      const response = await getCategory();
       return response.data.data.response;
     },
   });
