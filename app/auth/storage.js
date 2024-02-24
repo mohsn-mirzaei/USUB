@@ -1,4 +1,6 @@
 import * as SecureStore from "expo-secure-store";
+import "core-js/stable/atob";
+import { jwtDecode } from "jwt-decode";
 
 const key = "authInfo";
 
@@ -20,8 +22,8 @@ const getInfo = async () => {
 };
 
 const getUser = async () => {
-  const userInfo = await getInfo();
-  return userInfo ? userInfo : null;
+  const token = await getInfo();
+  return token ? jwtDecode(token) : null;
 };
 
 const removeInfo = async () => {
