@@ -20,7 +20,7 @@ const LoginScreen = () => {
     authApi
       .login(email, password)
       .then((res) => {
-        logIn(res.data.token);
+        logIn(res.data);
       })
       .catch((err) => console.log(err));
   };
